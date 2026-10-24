@@ -244,6 +244,19 @@ app.patch('/api/contact/messages/:id', requireAdmin, (req: Request, res: Respons
   }
 });
 
+app.delete('/api/contact/messages/:id', requireAdmin, (req: Request, res: Response) => {
+  try {
+    const deleted = db.deleteMessage(req.params.id);
+    if (!deleted) {
+      res.status(404).json({ error: 'Message not found' });
+      return;
+    }
+    res.json({ success: true, message: 'Message deleted successfully' });
+  } catch (err: any) {
+    res.status(500).json({ error: 'Failed to delete message', details: err.message });
+  }
+});
+
 // -----------------------------------------------------------------------------
 // Site Stats & Telemetry
 // -----------------------------------------------------------------------------
@@ -263,5 +276,50 @@ app.post('/api/stats/visit', (req: Request, res: Response) => {
     res.json({ success: true, stats: updatedStats });
   } catch (err: any) {
     res.status(500).json({ error: 'Failed to record visit', details: err.message });
+  }
+});
+
+app.post('/api/stats/reset', requireAdmin, (_req: Request, res: Response) => {
+  try {
+    const stats = db.resetStats();
+    res.json({ success: true, stats });
+  } catch (err: any) {
+    res.status(500).json({ error: 'Failed to reset site stats', details: err.message });
+  }
+});
+
+// -----------------------------------------------------------------------------
+// Database Backup, Restore & Factory Reset
+// -----------------------------------------------------------------------------
+app.get('/api/database/export', requireAdmin, (_req: Request, res: Response) => {
+  try {
+    const rawData = db.getRawDatabase();
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Disposition', 'attachment; filename="portfolio_db_backup.json"');
+    res.json(rawData);
+  } catch (err: any) {
+    res.status(500).json({ error: 'Failed to export database', details: err.message });
+  }
+});
+
+app.post('/api/database/import', requireAdmin, (req: Request, res: Response) => {
+  try {
+    if (!req.body || typeof req.body !== 'object') {
+      res.status(400).json({ error: 'Invalid database payload' });
+      return;
+    }
+    const restored = db.restoreDatabase(req.body);
+    res.json({ success: true, database: restored });
+  } catch (err: any) {
+    res.status(400).json({ error: 'Failed to restore database', details: err.message });
+  }
+});
+
+app.post('/api/database/reset', requireAdmin, (_req: Request, res: Response) => {
+  try {
+    const fresh = db.resetToDefaults();
+    res.json({ success: true, message: 'Database reset to default seeds', database: fresh });
+  } catch (err: any) {
+    res.status(500).json({ error: 'Failed to reset database', details: err.message });
   }
 });

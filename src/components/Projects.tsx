@@ -9,12 +9,19 @@ import { portfolioApi } from '../services/api';
 interface ProjectsProps {
   theme: SceneTheme;
   onSelectProject: (project: Project) => void;
+  projects?: Project[];
 }
 
-export const Projects: React.FC<ProjectsProps> = ({ theme: _theme, onSelectProject }) => {
-  const [projects, setProjects] = useState<Project[]>(PROJECTS_DATA);
+export const Projects: React.FC<ProjectsProps> = ({ theme: _theme, onSelectProject, projects: incomingProjects }) => {
+  const [projects, setProjects] = useState<Project[]>(incomingProjects || PROJECTS_DATA);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [likedProjects, setLikedProjects] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    if (incomingProjects && Array.isArray(incomingProjects)) {
+      setProjects(incomingProjects);
+    }
+  }, [incomingProjects]);
 
   useEffect(() => {
     let mounted = true;

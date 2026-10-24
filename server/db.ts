@@ -415,6 +415,14 @@ class Database {
     return true;
   }
 
+  public deleteMessage(id: string): boolean {
+    const prevLen = this.data.messages.length;
+    this.data.messages = this.data.messages.filter((m) => m.id !== id);
+    const deleted = this.data.messages.length < prevLen;
+    if (deleted) this.persist();
+    return deleted;
+  }
+
   // --- Stats & Telemetry Operations ---
   public getStats(): SiteStats {
     return this.data.stats;
@@ -428,6 +436,49 @@ class Database {
     this.data.stats.lastVisit = new Date().toISOString();
     this.persist();
     return this.data.stats;
+  }
+
+  public resetStats(): SiteStats {
+    this.data.stats = {
+      pageViews: 0,
+      uniqueVisitors: 0,
+      lastVisit: new Date().toISOString(),
+      projectLikesTotal: 0
+    };
+    this.persist();
+    return this.data.stats;
+  }
+
+  // --- Database Management & Backups ---
+  public getRawDatabase(): DatabaseSchema {
+    return this.data;
+  }
+
+  public restoreDatabase(schema: DatabaseSchema): DatabaseSchema {
+    if (schema.profile) this.data.profile = schema.profile;
+    if (Array.isArray(schema.projects)) this.data.projects = schema.projects;
+    if (Array.isArray(schema.skills)) this.data.skills = schema.skills;
+    if (Array.isArray(schema.messages)) this.data.messages = schema.messages;
+    if (schema.stats) this.data.stats = schema.stats;
+    this.persist();
+    return this.data;
+  }
+
+  public resetToDefaults(): DatabaseSchema {
+    this.data = {
+      profile: DEFAULT_PROFILE,
+      projects: DEFAULT_PROJECTS,
+      skills: DEFAULT_SKILLS,
+      messages: [],
+      stats: {
+        pageViews: 1420,
+        uniqueVisitors: 412,
+        lastVisit: new Date().toISOString(),
+        projectLikesTotal: 163
+      }
+    };
+    this.persist();
+    return this.data;
   }
 }
 

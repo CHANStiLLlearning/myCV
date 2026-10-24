@@ -4,11 +4,15 @@ import { sounds } from '../utils/soundEffects';
 import { GithubIcon, LinkedinIcon } from './icons';
 import { ArrowUp, Terminal, Clock, Send, Mail } from 'lucide-react';
 
+import type { PersonalInfo } from '../services/api';
+
 interface FooterProps {
   onOpenAdmin?: () => void;
+  profile?: PersonalInfo;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenAdmin, profile }) => {
+  const info = profile || (PERSONAL_INFO as PersonalInfo);
   const [localTime, setLocalTime] = useState<string>('');
 
   useEffect(() => {
@@ -16,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
       try {
         const now = new Date();
         const formatted = new Intl.DateTimeFormat('en-US', {
-          timeZone: PERSONAL_INFO.timezone,
+          timeZone: info.timezone || 'Asia/Phnom_Penh',
           hour: '2-digit',
           minute: '2-digit',
           second: '2-digit',
@@ -31,7 +35,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [info.timezone]);
 
   const scrollToTop = () => {
     sounds.playClick();
@@ -48,10 +52,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
               <div className="logo-badge">
                 <Terminal size={16} />
               </div>
-              <span className="brand-name">{PERSONAL_INFO.name}</span>
+              <span className="brand-name">{info.name}</span>
             </div>
             <p className="footer-bio">
-              Creative Frontend Developer based in {PERSONAL_INFO.location}. Specialized in high-performance WebGL, React architectures, and immersive interactive design.
+              Creative Frontend Developer based in {info.location}. Specialized in high-performance WebGL, React architectures, and immersive interactive design.
             </p>
           </div>
 
@@ -72,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
         <div className="footer-bottom-row">
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
             <p className="copyright-text" style={{ margin: 0 }}>
-              © {new Date().getFullYear()} {PERSONAL_INFO.fullName}. Crafted with React, Express &amp; TypeScript.
+              © {new Date().getFullYear()} {info.fullName}. Crafted with React, Express &amp; TypeScript.
             </p>
             {onOpenAdmin && (
               <button

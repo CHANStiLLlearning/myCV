@@ -4,9 +4,13 @@ import type { SceneTheme } from '../types';
 import { sounds } from '../utils/soundEffects';
 import { Volume2, VolumeX, Menu, X, Sparkles, Terminal } from 'lucide-react';
 
+import type { PersonalInfo } from '../services/api';
+
 interface NavbarProps {
   currentTheme: SceneTheme;
   onThemeChange: (theme: SceneTheme) => void;
+  onOpenAdmin?: () => void;
+  profile?: PersonalInfo;
 }
 
 const NAV_LINKS = [
@@ -18,7 +22,8 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export const Navbar: React.FC<NavbarProps> = ({ currentTheme, onThemeChange }) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentTheme, onThemeChange, onOpenAdmin, profile }) => {
+  const info = profile || (PERSONAL_INFO as PersonalInfo);
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -80,10 +85,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTheme, onThemeChange }) =
             <Terminal size={18} className="logo-icon" />
           </div>
           <div className="brand-text">
-            <span className="brand-name">{PERSONAL_INFO.name}</span>
+            <span className="brand-name">{info.name}</span>
             <span className="brand-status">
               <span className="status-dot"></span>
-              <span className="status-text">Available</span>
+              <span className="status-text">{info.availability.includes('Available') ? 'Available' : 'Busy'}</span>
             </span>
           </div>
         </a>
@@ -161,6 +166,24 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTheme, onThemeChange }) =
             <span>Let's Talk</span>
           </a>
 
+          {/* CMS Admin Portal Button */}
+          {onOpenAdmin && (
+            <button
+              type="button"
+              id="nav-admin-control-btn"
+              className="nav-action-btn"
+              onClick={() => {
+                sounds.playClick();
+                onOpenAdmin();
+              }}
+              title="Open Admin Control Center (Ctrl+Shift+A)"
+              aria-label="Admin Control Center"
+              style={{ color: 'var(--accent-cyan)' }}
+            >
+              <Terminal size={15} />
+            </button>
+          )}
+
           {/* Mobile Menu Hamburger */}
           <button
             type="button"
@@ -197,7 +220,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTheme, onThemeChange }) =
 
           <div className="mobile-drawer-footer">
             <div className="mobile-location-tag">
-              <span>📍 {PERSONAL_INFO.location}</span>
+              <span>📍 {info.location}</span>
             </div>
             <a
               href="#contact"
@@ -206,6 +229,21 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTheme, onThemeChange }) =
             >
               Get In Touch
             </a>
+            {onOpenAdmin && (
+              <button
+                type="button"
+                className="btn btn-secondary w-full"
+                style={{ marginTop: '8px', fontSize: '0.8rem' }}
+                onClick={() => {
+                  sounds.playClick();
+                  setMobileMenuOpen(false);
+                  onOpenAdmin();
+                }}
+              >
+                <Terminal size={14} />
+                <span>Admin Control Center</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

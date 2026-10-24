@@ -3,11 +3,16 @@ import { PERSONAL_INFO } from '../data/portfolioData';
 import type { SceneTheme } from '../types';
 import { Sparkles } from 'lucide-react';
 
+import type { PersonalInfo } from '../services/api';
+
 interface AboutProps {
   theme: SceneTheme;
+  profile?: PersonalInfo;
 }
 
-export const About: React.FC<AboutProps> = ({ theme: _theme }) => {
+export const About: React.FC<AboutProps> = ({ theme: _theme, profile }) => {
+  const info = profile || (PERSONAL_INFO as PersonalInfo);
+
   return (
     <section id="about" className="section-container about-section">
       <div className="section-header text-center">
@@ -30,7 +35,7 @@ export const About: React.FC<AboutProps> = ({ theme: _theme }) => {
           <div className="profile-image-wrapper">
             <img
               src="/profile.jpg"
-              alt={`${PERSONAL_INFO.name} - Frontend Developer`}
+              alt={`${info.name} - Frontend Developer`}
               className="profile-img"
               loading="lazy"
             />
@@ -44,32 +49,43 @@ export const About: React.FC<AboutProps> = ({ theme: _theme }) => {
           <div className="profile-details">
             <div className="profile-status-bar">
               <span className="live-dot" />
-              <span className="status-label">BASED IN {PERSONAL_INFO.location.toUpperCase()}</span>
+              <span className="status-label">BASED IN {info.location.toUpperCase()}</span>
             </div>
-            <h3 className="profile-name">{PERSONAL_INFO.fullName}</h3>
-            <p className="profile-role">{PERSONAL_INFO.role}</p>
+            <h3 className="profile-name">{info.fullName}</h3>
+            <p className="profile-role">{info.role}</p>
 
             <div className="profile-badges">
               <span className="badge">Frontend Engineer</span>
               <span className="badge">Performance &amp; UI</span>
-              <span className="badge">UI/UX Craftsman</span>
+              <span className="badge">{info.focus}</span>
             </div>
 
             <div className="profile-divider" />
 
             <div className="profile-quick-stats">
-              <div className="q-stat">
-                <span className="q-val">3+</span>
-                <span className="q-lbl">Years Code</span>
-              </div>
-              <div className="q-stat">
-                <span className="q-val">100%</span>
-                <span className="q-lbl">Commitment</span>
-              </div>
-              <div className="q-stat">
-                <span className="q-val">Remote</span>
-                <span className="q-lbl">Worldwide</span>
-              </div>
+              {info.stats && info.stats.length > 0 ? (
+                info.stats.slice(0, 3).map((st, i) => (
+                  <div key={i} className="q-stat">
+                    <span className="q-val">{st.value}</span>
+                    <span className="q-lbl">{st.label}</span>
+                  </div>
+                ))
+              ) : (
+                <>
+                  <div className="q-stat">
+                    <span className="q-val">3+</span>
+                    <span className="q-lbl">Years Code</span>
+                  </div>
+                  <div className="q-stat">
+                    <span className="q-val">100%</span>
+                    <span className="q-lbl">Commitment</span>
+                  </div>
+                  <div className="q-stat">
+                    <span className="q-val">Remote</span>
+                    <span className="q-lbl">Worldwide</span>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -77,7 +93,7 @@ export const About: React.FC<AboutProps> = ({ theme: _theme }) => {
         {/* Right Column: Narrative */}
         <div className="about-narrative">
           <div className="narrative-text">
-            {PERSONAL_INFO.bioExtended.map((paragraph, idx) => (
+            {info.bioExtended.map((paragraph, idx) => (
               <p key={idx} className="bio-paragraph">
                 {paragraph}
               </p>

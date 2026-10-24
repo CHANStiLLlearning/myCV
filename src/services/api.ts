@@ -151,6 +151,13 @@ export const portfolioApi = {
     });
   },
 
+  async deleteMessage(id: string, adminKey?: string): Promise<{ success: boolean }> {
+    return fetchJson(`${API_BASE}/contact/messages/${id}`, {
+      method: 'DELETE',
+      headers: adminKey ? { Authorization: `Bearer ${adminKey}` } : {}
+    });
+  },
+
   // --- Telemetry & Site Stats Operations ---
   async getStats(): Promise<SiteStats> {
     return fetchJson<SiteStats>(`${API_BASE}/stats`, undefined, {
@@ -170,6 +177,35 @@ export const portfolioApi = {
     return fetchJson(`${API_BASE}/stats/visit`, {
       method: 'POST',
       body: JSON.stringify({ isUnique })
+    });
+  },
+
+  async resetStats(adminKey?: string): Promise<{ success: boolean; stats: SiteStats }> {
+    return fetchJson(`${API_BASE}/stats/reset`, {
+      method: 'POST',
+      headers: adminKey ? { Authorization: `Bearer ${adminKey}` } : {}
+    });
+  },
+
+  // --- Database Management Operations ---
+  async exportDatabase(adminKey?: string): Promise<any> {
+    return fetchJson(`${API_BASE}/database/export`, {
+      headers: adminKey ? { Authorization: `Bearer ${adminKey}` } : {}
+    });
+  },
+
+  async importDatabase(data: any, adminKey?: string): Promise<{ success: boolean; database: any }> {
+    return fetchJson(`${API_BASE}/database/import`, {
+      method: 'POST',
+      headers: adminKey ? { Authorization: `Bearer ${adminKey}` } : {},
+      body: JSON.stringify(data)
+    });
+  },
+
+  async resetDatabase(adminKey?: string): Promise<{ success: boolean; message: string; database: any }> {
+    return fetchJson(`${API_BASE}/database/reset`, {
+      method: 'POST',
+      headers: adminKey ? { Authorization: `Bearer ${adminKey}` } : {}
     });
   }
 };

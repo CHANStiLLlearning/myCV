@@ -7,8 +7,11 @@ import { GithubIcon, LinkedinIcon } from './icons';
 import { Sparkles, Send, Mail, Copy, Check, MapPin, ArrowRight, Loader2, AlertCircle } from 'lucide-react';
 import { portfolioApi } from '../services/api';
 
+import type { PersonalInfo } from '../services/api';
+
 interface ContactProps {
   theme: SceneTheme;
+  profile?: PersonalInfo;
 }
 
 interface FormState {
@@ -16,7 +19,8 @@ interface FormState {
   email: string;
 }
 
-export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
+export const Contact: React.FC<ContactProps> = ({ theme: _theme, profile }) => {
+  const info = profile || (PERSONAL_INFO as PersonalInfo);
   const [form, setForm] = useState<FormState>({
     name: '',
     email: '',
@@ -82,7 +86,7 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
 
   const copyEmailToClipboard = () => {
     sounds.playClick();
-    navigator.clipboard.writeText(PERSONAL_INFO.email);
+    navigator.clipboard.writeText(info.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
   };
@@ -90,9 +94,9 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
   const generateMailto = () => {
     const sub = encodeURIComponent(`[Inquiry] Connection from ${form.name}`);
     const body = encodeURIComponent(
-      `Hi KEO KIMCHAN,\n\nI would like to get in touch with you regarding your frontend engineering work.\n\nFrom: ${form.name} (${form.email})`
+      `Hi ${info.fullName},\n\nI would like to get in touch with you regarding your frontend engineering work.\n\nFrom: ${form.name} (${form.email})`
     );
-    return `mailto:${PERSONAL_INFO.email}?subject=${sub}&body=${body}`;
+    return `mailto:${info.email}?subject=${sub}&body=${body}`;
   };
 
   return (
@@ -129,7 +133,7 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
               </div>
               <div className="channel-meta">
                 <span className="channel-label">Email Address</span>
-                <span className="channel-value">{PERSONAL_INFO.email}</span>
+                <span className="channel-value">{info.email}</span>
               </div>
               <button
                 type="button"
@@ -144,7 +148,7 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
 
             {/* Telegram Channel */}
             <a
-              href={`https://t.me/${PERSONAL_INFO.telegram.replace('@', '')}`}
+              href={`https://t.me/${info.telegram.replace('@', '')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="channel-card linkable"
@@ -155,7 +159,7 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
               </div>
               <div className="channel-meta">
                 <span className="channel-label">Telegram Direct</span>
-                <span className="channel-value">{PERSONAL_INFO.telegram}</span>
+                <span className="channel-value">{info.telegram}</span>
               </div>
               <ArrowRight size={16} className="channel-arrow" />
             </a>
@@ -167,7 +171,7 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
               </div>
               <div className="channel-meta">
                 <span className="channel-label">Current Location</span>
-                <span className="channel-value">{PERSONAL_INFO.location}</span>
+                <span className="channel-value">{info.location}</span>
                 <span className="channel-sub">UTC+7 Timezone</span>
               </div>
             </div>

@@ -8,12 +8,19 @@ import { portfolioApi } from '../services/api';
 
 interface SkillsProps {
   theme: SceneTheme;
+  skills?: SkillCategory[];
 }
 
-export const Skills: React.FC<SkillsProps> = ({ theme }) => {
-  const [skillCategories, setSkillCategories] = useState<SkillCategory[]>(SKILL_CATEGORIES);
+export const Skills: React.FC<SkillsProps> = ({ theme, skills: incomingSkills }) => {
+  const [skillCategories, setSkillCategories] = useState<SkillCategory[]>(incomingSkills || SKILL_CATEGORIES);
   const [selectedCatId, setSelectedCatId] = useState<string>('all');
   const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
+
+  useEffect(() => {
+    if (incomingSkills && Array.isArray(incomingSkills)) {
+      setSkillCategories(incomingSkills);
+    }
+  }, [incomingSkills]);
 
   useEffect(() => {
     let mounted = true;

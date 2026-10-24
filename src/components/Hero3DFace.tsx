@@ -4,12 +4,16 @@ import { PERSONAL_INFO } from '../data/portfolioData';
 import { sounds } from '../utils/soundEffects';
 import { Sparkles, Zap, Rotate3d } from 'lucide-react';
 
+import type { PersonalInfo } from '../services/api';
+
 interface Hero3DFaceProps {
   currentTheme: SceneTheme;
   onThemeChange: (theme: SceneTheme) => void;
+  profile?: PersonalInfo;
 }
 
-export const Hero3DFace: React.FC<Hero3DFaceProps> = ({ currentTheme, onThemeChange }) => {
+export const Hero3DFace: React.FC<Hero3DFaceProps> = ({ currentTheme, onThemeChange, profile }) => {
+  const info = profile || (PERSONAL_INFO as PersonalInfo);
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotate, setRotate] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [glare, setGlare] = useState<{ x: number; y: number; opacity: number }>({ x: 50, y: 50, opacity: 0 });
@@ -141,10 +145,10 @@ export const Hero3DFace: React.FC<Hero3DFaceProps> = ({ currentTheme, onThemeCha
         {/* Layer 3: Floating 3D Title Card at Bottom (translateZ: 85px) */}
         <div className="face-layer-hud-bottom">
           <div className="face-name-row">
-            <h3 className="face-card-name">{PERSONAL_INFO.fullName}</h3>
-            <span className="face-alias-badge">{PERSONAL_INFO.name}</span>
+            <h3 className="face-card-name">{info.fullName}</h3>
+            <span className="face-alias-badge">{info.name}</span>
           </div>
-          <p className="face-card-role">{PERSONAL_INFO.role}</p>
+          <p className="face-card-role">{info.role}</p>
 
           <div className="face-micro-tags">
             <span className="face-chip">

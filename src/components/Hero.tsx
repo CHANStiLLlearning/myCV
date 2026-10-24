@@ -5,13 +5,17 @@ import { Hero3DFace } from './Hero3DFace';
 import { sounds } from '../utils/soundEffects';
 import { ArrowRight, Download, Send, Sparkles, MapPin, ChevronDown } from 'lucide-react';
 
+import type { PersonalInfo } from '../services/api';
+
 interface HeroProps {
   currentTheme: SceneTheme;
   onThemeChange: (theme: SceneTheme) => void;
   onOpenResume: () => void;
+  profile?: PersonalInfo;
 }
 
-export const Hero: React.FC<HeroProps> = ({ currentTheme, onThemeChange, onOpenResume }) => {
+export const Hero: React.FC<HeroProps> = ({ currentTheme, onThemeChange, onOpenResume, profile }) => {
+  const info = profile || (PERSONAL_INFO as PersonalInfo);
   const scrollTo = (id: string) => {
     sounds.playClick();
     const el = document.getElementById(id);
@@ -30,11 +34,11 @@ export const Hero: React.FC<HeroProps> = ({ currentTheme, onThemeChange, onOpenR
           <div className="hero-eyebrow">
             <span className="eyebrow-badge">
               <Sparkles size={13} className="sparkle-icon" />
-              <span>CREATIVE FRONTEND WEB DEVELOPER</span>
+              <span>{info.role.toUpperCase()}</span>
             </span>
             <div className="location-pill">
               <MapPin size={12} />
-              <span>{PERSONAL_INFO.location}</span>
+              <span>{info.location}</span>
             </div>
           </div>
 
@@ -46,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ currentTheme, onThemeChange, onOpenR
 
           {/* Introduction & Subtitle */}
           <p className="hero-description">
-            Hello, I’m <strong>{PERSONAL_INFO.name}</strong>. I build fluid, high-performance web applications and interactive digital experiences. Bridging the gap between cutting-edge creative aesthetics and rigorous frontend engineering.
+            Hello, I’m <strong>{info.name}</strong>. {info.bioShort || 'I build fluid, high-performance web applications and interactive digital experiences. Bridging the gap between cutting-edge creative aesthetics and rigorous frontend engineering.'}
           </p>
 
           {/* Key Quick Technology Tags */}
@@ -100,7 +104,7 @@ export const Hero: React.FC<HeroProps> = ({ currentTheme, onThemeChange, onOpenR
 
           {/* Live Micro Metric Counters */}
           <div className="hero-metrics-row">
-            {PERSONAL_INFO.stats.map((stat, idx) => (
+            {info.stats.map((stat, idx) => (
               <div key={idx} className="metric-chip">
                 <span className="metric-val">{stat.value}</span>
                 <span className="metric-lbl">{stat.label}</span>
@@ -111,7 +115,7 @@ export const Hero: React.FC<HeroProps> = ({ currentTheme, onThemeChange, onOpenR
 
         {/* Right Side: Interactive 3D Holographic Face Portrait */}
         <div className="hero-visual">
-          <Hero3DFace currentTheme={currentTheme} onThemeChange={onThemeChange} />
+          <Hero3DFace currentTheme={currentTheme} onThemeChange={onThemeChange} profile={info} />
         </div>
       </div>
 

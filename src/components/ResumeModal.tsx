@@ -3,12 +3,17 @@ import { PERSONAL_INFO, SKILL_CATEGORIES, TIMELINE_DATA, PROJECTS_DATA } from '.
 import { sounds } from '../utils/soundEffects';
 import { X, Printer, Download, MapPin, Mail, Send } from 'lucide-react';
 
+import type { PersonalInfo } from '../services/api';
+
 interface ResumeModalProps {
   isOpen: boolean;
   onClose: () => void;
+  profile?: PersonalInfo;
 }
 
-export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => {
+export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, profile }) => {
+  const info = profile || (PERSONAL_INFO as PersonalInfo);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -33,16 +38,16 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   const handleDownloadTxt = () => {
     sounds.playClick();
     const content = `=====================================================
-${PERSONAL_INFO.fullName.toUpperCase()} — RESUME / CV
-${PERSONAL_INFO.role} | 3D Web & Frontend Specialist
-Location: ${PERSONAL_INFO.location}
-Email: ${PERSONAL_INFO.email}
-Telegram: ${PERSONAL_INFO.telegram}
+${info.fullName.toUpperCase()} — RESUME / CV
+${info.role} | 3D Web & Frontend Specialist
+Location: ${info.location}
+Email: ${info.email}
+Telegram: ${info.telegram}
 =====================================================
 
 PROFILE SUMMARY
 -----------------------------------------------------
-${PERSONAL_INFO.bioExtended.join('\n\n')}
+${info.bioExtended.join('\n\n')}
 
 CORE TECHNICAL COMPETENCIES
 -----------------------------------------------------
@@ -130,34 +135,35 @@ ${TIMELINE_DATA.map(
             <div className="resume-header-bio">
               <img
                 src="/profile.jpg"
-                alt={PERSONAL_INFO.fullName}
+                alt={info.fullName}
                 className="resume-avatar-img"
               />
               <div>
-                <h1 className="resume-name">{PERSONAL_INFO.fullName}</h1>
-                <h2 className="resume-title">{PERSONAL_INFO.role}</h2>
+                <h1 className="resume-name">{info.fullName}</h1>
+                <h2 className="resume-title">{info.role}</h2>
               </div>
             </div>
             <div className="resume-contacts">
               <div className="r-item">
                 <MapPin size={13} />
-                <span>{PERSONAL_INFO.location}</span>
+                <span>{info.location}</span>
               </div>
               <div className="r-item">
                 <Mail size={13} />
-                <span>{PERSONAL_INFO.email}</span>
+                <span>{info.email}</span>
               </div>
               <div className="r-item">
                 <Send size={13} />
-                <span>{PERSONAL_INFO.telegram}</span>
+                <span>{info.telegram}</span>
               </div>
             </div>
           </div>
 
           <div className="resume-section">
             <h3 className="r-section-heading">Executive Summary</h3>
-            <p className="r-text">{PERSONAL_INFO.bioExtended[0]}</p>
-            <p className="r-text">{PERSONAL_INFO.bioExtended[1]}</p>
+            {info.bioExtended.map((p, idx) => (
+              <p key={idx} className="r-text">{p}</p>
+            ))}
           </div>
 
           <div className="resume-section">
