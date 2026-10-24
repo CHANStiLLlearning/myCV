@@ -84,7 +84,7 @@ const DEFAULT_PROFILE: PersonalInfo = {
   focus: '3D Web Experiences, Interactive UI & Performance',
   location: 'Phnom Penh, Cambodia',
   timezone: 'Asia/Phnom Penh',
-  email: 'chan.stilllearning@gmail.com',
+  email: 'reactjs35@gmail.com',
   telegram: '@chan_frontend',
   availability: 'Available for Remote Roles & High-Impact Projects',
   bioShort: 'Frontend developer passionate about building interactive, 3D-infused digital experiences with cinematic precision and clean code.',

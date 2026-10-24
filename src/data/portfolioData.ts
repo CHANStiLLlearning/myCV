@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   focus: '3D Web Experiences, Interactive UI & Performance',
   location: 'Phnom Penh, Cambodia',
   timezone: 'Asia/Phnom Penh',
-  email: 'chan.stilllearning@gmail.com',
+  email: 'reactjs35@gmail.com',
   telegram: '@chan_frontend',
   availability: 'Available for Remote Roles & High-Impact Projects',
   bioShort: 'Frontend developer passionate about building interactive, 3D-infused digital experiences with cinematic precision and clean code.',
@@ -216,8 +216,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     platform: 'Email',
-    url: 'mailto:chan.stilllearning@gmail.com',
+    url: 'mailto:reactjs35@gmail.com',
     icon: 'Mail',
-    handle: 'chan.stilllearning@gmail.com'
+    handle: 'reactjs35@gmail.com'
   }
 ];
