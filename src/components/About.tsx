@@ -1,35 +1,11 @@
 import React from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import type { SceneTheme } from '../types';
-import { sounds } from '../utils/soundEffects';
-import { Sparkles, Terminal, Cpu, Layers, CheckCircle2, Heart } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 interface AboutProps {
   theme: SceneTheme;
 }
-
-const PRINCIPLES = [
-  {
-    icon: Layers,
-    title: 'Visual Polish & Precision',
-    description: 'Every padding, font weight, and micro-interaction is intentionally crafted to feel tactile and premium.'
-  },
-  {
-    icon: Cpu,
-    title: '60 FPS Performance',
-    description: 'GPU-accelerated transforms, zero layout shifts, optimized Three.js geometries, and tight bundles.'
-  },
-  {
-    icon: Terminal,
-    title: 'Clean & Strict Code',
-    description: 'Type-safe TypeScript, idiomatic React hooks, maintainable folder patterns, and zero bloat.'
-  },
-  {
-    icon: Heart,
-    title: 'Obsessive Learner',
-    description: 'True to my alias "stilllearning"—constantly exploring new WebGL techniques, shaders, and web standards.'
-  }
-];
 
 export const About: React.FC<AboutProps> = ({ theme: _theme }) => {
   return (
@@ -98,7 +74,7 @@ export const About: React.FC<AboutProps> = ({ theme: _theme }) => {
           </div>
         </div>
 
-        {/* Right Column: Narrative & Engineering Philosophy */}
+        {/* Right Column: Narrative */}
         <div className="about-narrative">
           <div className="narrative-text">
             {PERSONAL_INFO.bioExtended.map((paragraph, idx) => (
@@ -107,32 +83,9 @@ export const About: React.FC<AboutProps> = ({ theme: _theme }) => {
               </p>
             ))}
           </div>
-
-          <h4 className="principles-title">
-            <CheckCircle2 size={18} className="text-accent" />
-            <span>Core Engineering Principles</span>
-          </h4>
-
-          <div className="principles-grid">
-            {PRINCIPLES.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="principle-card interactive-card"
-                  onMouseEnter={() => sounds.playHover()}
-                >
-                  <div className="principle-icon-box">
-                    <Icon size={20} />
-                  </div>
-                  <h5 className="principle-name">{item.title}</h5>
-                  <p className="principle-desc">{item.description}</p>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </section>
   );
 };
+
