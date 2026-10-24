@@ -1,0 +1,336 @@
+{
+  "profile": {
+    "name": "CHAN",
+    "fullName": "Chan Sovannarith",
+    "role": "Creative Frontend Web Developer",
+    "focus": "3D Web Experiences, Interactive UI & Performance",
+    "location": "Phnom Penh, Cambodia",
+    "timezone": "Asia/Phnom Penh",
+    "email": "chan.stilllearning@gmail.com",
+    "telegram": "@chan_frontend",
+    "availability": "Available for Remote Roles & High-Impact Projects",
+    "bioShort": "Frontend developer passionate about building interactive, 3D-infused digital experiences with cinematic precision and clean code.",
+    "bioExtended": [
+      "I am a creative frontend developer based in Cambodia, driven by the intersection of modern web engineering, fluid motion, and real-time 3D graphics.",
+      "Over the past 3+ years, I have specialized in turning ambitious concepts into smooth 60fps web applications. My foundation is built upon deep mastery of HTML, modern CSS architectures, JavaScript (ESNext), React.js, and TypeScript, amplified by WebGL and Three.js.",
+      "I believe that the web should not just present information—it should captivate and respond intuitively. Whether crafting spatial commerce interfaces or lightning-fast dashboards, I focus relentlessly on responsive precision, accessibility, and micro-interactions."
+    ],
+    "stats": [
+      {
+        "label": "Years Experience",
+        "value": "3+"
+      },
+      {
+        "label": "Projects Completed",
+        "value": "18+"
+      },
+      {
+        "label": "Core Web Vitals Avg",
+        "value": "98%"
+      },
+      {
+        "label": "Client Satisfaction",
+        "value": "100%"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": "cyberstep-nexus",
+      "title": "CyberStep | Spatial 3D Commerce",
+      "tagline": "Interactive 3D product customization engine with WebGL lighting",
+      "description": "A futuristic spatial e-commerce flagship prototype for custom cyberpunk sneakers. Built with Three.js and React, featuring real-time material shader swaps, dynamic studio lighting tracks, interactive 360° orbital exploration, and responsive checkout flows.",
+      "image": "/projects/nexus-3d.jpg",
+      "category": "3D & WebGL",
+      "tags": [
+        "React",
+        "Three.js",
+        "WebGL",
+        "TypeScript",
+        "CSS Modules"
+      ],
+      "liveUrl": "https://cyberstep-demo.vercel.app",
+      "githubUrl": "https://github.com/chan-stilllearning/cyberstep-3d-commerce",
+      "featured": true,
+      "likes": 43,
+      "metrics": [
+        {
+          "label": "Frame Rate",
+          "value": "60 FPS stable"
+        },
+        {
+          "label": "Load Time",
+          "value": "< 1.1s"
+        },
+        {
+          "label": "Mesh Vertices",
+          "value": "48k optimized"
+        }
+      ],
+      "highlights": [
+        "Procedural studio lighting with adjustable soft shadows and reflection probes",
+        "Instant colorway switcher with metallic PBR material shader interpolation",
+        "Mouse-driven dynamic focal depth and camera zoom constraints",
+        "Mobile-responsive touch drag rotation with inertia damping"
+      ]
+    },
+    {
+      "id": "aetheria-ai",
+      "title": "Aetheria | AI Node Prompt Studio",
+      "tagline": "Visual node-based canvas for orchestrating multi-step AI reasoning pipelines",
+      "description": "An advanced generative prompt engineering interface featuring an infinite interactive canvas, draggable LLM workflow nodes, live output stream monitors, and dynamic connection wires with neon pulses.",
+      "image": "/projects/aetheria.jpg",
+      "category": "AI & Web Apps",
+      "tags": [
+        "React",
+        "TypeScript",
+        "HTML5 Canvas",
+        "Tailwind CSS",
+        "State Machine"
+      ],
+      "liveUrl": "https://aetheria-studio.vercel.app",
+      "githubUrl": "https://github.com/chan-stilllearning/aetheria-prompt-canvas",
+      "featured": true,
+      "likes": 38,
+      "metrics": [
+        {
+          "label": "Canvas Nodes",
+          "value": "500+ @ 60fps"
+        },
+        {
+          "label": "Latency",
+          "value": "Sub-16ms render"
+        },
+        {
+          "label": "State Sync",
+          "value": "Real-time WebSocket"
+        }
+      ],
+      "highlights": [
+        "Infinite zoom/pan hardware-accelerated canvas using custom matrix math",
+        "Curved Bezier wires with directional pulse particles signaling active tokens",
+        "Live syntax-highlighted code editor for prompt variables and function definitions",
+        "Context-aware node palette with instant keyboard shortcut filtering"
+      ]
+    },
+    {
+      "id": "omnipulse-fintech",
+      "title": "OmniPulse | Real-Time Crypto Terminal",
+      "tagline": "High-frequency algorithmic trading dashboard with telemetry sparklines",
+      "description": "A dark-mode cyberpunk financial workspace designed for active crypto asset tracking. Features sub-second candlestick updates, depth book visualizer, multi-wallet balance monitor, and sound-cued trade notifications.",
+      "image": "/projects/omnipulse.jpg",
+      "category": "Fintech & Dashboards",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Chart.js",
+        "WebSocket",
+        "Tailwind CSS"
+      ],
+      "liveUrl": "https://omnipulse-terminal.vercel.app",
+      "githubUrl": "https://github.com/chan-stilllearning/omnipulse-trading-ui",
+      "featured": true,
+      "likes": 29,
+      "metrics": [
+        {
+          "label": "Tick Rate",
+          "value": "100ms updates"
+        },
+        {
+          "label": "Bundle Size",
+          "value": "78 kB gzip"
+        },
+        {
+          "label": "Accessibility",
+          "value": "100% WCAG AAA"
+        }
+      ],
+      "highlights": [
+        "Zero-lag order book visualizer with live volume depth heatmaps",
+        "Synthesized Web Audio clicks and sound pings on executed limit orders",
+        "Configurable multi-pane drag-and-drop dashboard layout with persistent local state",
+        "Colorblind-accessible high-contrast neon theme switches"
+      ]
+    },
+    {
+      "id": "khmer-heritage-spatial",
+      "title": "Angkor Legacy | Virtual Khmer Museum",
+      "tagline": "Interactive 3D cultural preservation gallery of ancient Khmer temple artifacts",
+      "description": "A tribute to Cambodian cultural heritage, bringing 12th-century Angkor Wat stone sculptures and bas-relief carvings into interactive 3D WebGL space. Includes historical audio commentary and bilingual Khmer-English inscriptions.",
+      "image": "/projects/khmer-heritage.jpg",
+      "category": "Cultural Heritage",
+      "tags": [
+        "Three.js",
+        "React",
+        "Spatial Audio",
+        "GLTF/Draco",
+        "Khmer Typography"
+      ],
+      "liveUrl": "https://angkor-legacy.vercel.app",
+      "githubUrl": "https://github.com/chan-stilllearning/angkor-virtual-museum",
+      "featured": true,
+      "likes": 54,
+      "metrics": [
+        {
+          "label": "3D Scan Quality",
+          "value": "Draco 10:1"
+        },
+        {
+          "label": "Bilingual Support",
+          "value": "Khmer & English"
+        },
+        {
+          "label": "Cultural Assets",
+          "value": "14 artifacts"
+        }
+      ],
+      "highlights": [
+        "Draco-compressed high-detail 3D photogrammetry scans of Bayon temple faces",
+        "Spatial 3D audio reverberation matching stone corridor acoustic profiles",
+        "Dual typography system gracefully pairing Khmer Unicode with modern Syne sans",
+        "Light/Shadow simulation matching real-world Siem Reap solar azimuth positions"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "frontend-core",
+      "name": "Frontend Core",
+      "icon": "Code2",
+      "skills": [
+        {
+          "name": "React.js",
+          "level": 95,
+          "experience": "3+ yrs",
+          "highlight": true
+        },
+        {
+          "name": "JavaScript (ESNext)",
+          "level": 96,
+          "experience": "4+ yrs",
+          "highlight": true
+        },
+        {
+          "name": "TypeScript",
+          "level": 92,
+          "experience": "3 yrs",
+          "highlight": true
+        },
+        {
+          "name": "HTML5 Semantic Web",
+          "level": 98,
+          "experience": "4+ yrs"
+        },
+        {
+          "name": "Modern CSS & Animations",
+          "level": 96,
+          "experience": "4+ yrs",
+          "highlight": true
+        },
+        {
+          "name": "Tailwind CSS",
+          "level": 94,
+          "experience": "3 yrs"
+        }
+      ]
+    },
+    {
+      "id": "creative-3d",
+      "name": "3D & Creative Tech",
+      "icon": "Box",
+      "skills": [
+        {
+          "name": "Three.js",
+          "level": 88,
+          "experience": "2+ yrs",
+          "highlight": true
+        },
+        {
+          "name": "WebGL & Canvas 2D",
+          "level": 82,
+          "experience": "2 yrs"
+        },
+        {
+          "name": "Shader Basics (GLSL)",
+          "level": 75,
+          "experience": "1.5 yrs"
+        },
+        {
+          "name": "Camera & Lighting Math",
+          "level": 85,
+          "experience": "2 yrs"
+        },
+        {
+          "name": "Blender & 3D Asset Prep",
+          "level": 78,
+          "experience": "2 yrs"
+        },
+        {
+          "name": "Framer Motion / GSAP",
+          "level": 90,
+          "experience": "3 yrs",
+          "highlight": true
+        }
+      ]
+    },
+    {
+      "id": "engineering-workflow",
+      "name": "Engineering & Workflow",
+      "icon": "Cpu",
+      "skills": [
+        {
+          "name": "Vite / Webpack / Turbopack",
+          "level": 92,
+          "experience": "3 yrs"
+        },
+        {
+          "name": "Git & GitHub Collaboration",
+          "level": 94,
+          "experience": "4 yrs"
+        },
+        {
+          "name": "REST & GraphQL APIs",
+          "level": 88,
+          "experience": "3 yrs"
+        },
+        {
+          "name": "Performance & Web Vitals",
+          "level": 94,
+          "experience": "3 yrs",
+          "highlight": true
+        },
+        {
+          "name": "Responsive Mobile Precision",
+          "level": 98,
+          "experience": "4 yrs",
+          "highlight": true
+        },
+        {
+          "name": "Web Audio API",
+          "level": 82,
+          "experience": "2 yrs"
+        }
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "name": "Sarah Connor (AI Labs)",
+      "email": "sarah.connor@cyberdyne.io",
+      "subject": "3D Web Experience",
+      "budget": "$1k - $3k",
+      "message": "Hi Chan, we love your 3D portfolio and want to build a real-time reactive dashboard with you!",
+      "ip": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "id": "msg_1792858753419_ocg84",
+      "createdAt": "2026-10-24T16:19:13.420Z",
+      "status": "read"
+    }
+  ],
+  "stats": {
+    "pageViews": 1424,
+    "uniqueVisitors": 413,
+    "lastVisit": "2026-10-24T16:18:22.403Z",
+    "projectLikesTotal": 164
+  }
+}

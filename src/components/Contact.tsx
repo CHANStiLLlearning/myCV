@@ -4,15 +4,8 @@ import { PERSONAL_INFO, SOCIAL_LINKS } from '../data/portfolioData';
 import type { SceneTheme } from '../types';
 import { sounds } from '../utils/soundEffects';
 import { GithubIcon, LinkedinIcon } from './icons';
-import {
-  Sparkles,
-  Send,
-  Mail,
-  Copy,
-  Check,
-  MapPin,
-  ArrowRight
-} from 'lucide-react';
+import { Sparkles, Send, Mail, Copy, Check, MapPin, ArrowRight, Loader2, AlertCircle } from 'lucide-react';
+import { portfolioApi } from '../services/api';
 
 interface ContactProps {
   theme: SceneTheme;
@@ -36,7 +29,10 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
   });
 
   const [errors, setErrors] = useState<Partial<FormState>>({});
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [inquiryId, setInquiryId] = useState<string>('');
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
 
   const validate = (): boolean => {
@@ -54,23 +50,43 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) {
       sounds.playClick();
       return;
     }
 
-    sounds.playSuccess();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
 
-    // Fire celebratory confetti burst
-    confetti({
-      particleCount: 80,
-      spread: 70,
-      origin: { y: 0.7 },
-      colors: ['#00f0ff', '#6366f1', '#a855f7', '#34d399', '#ffffff'],
-    });
+    try {
+      const res = await portfolioApi.sendContact({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        subject: form.subject,
+        budget: form.budget,
+        message: form.message.trim(),
+      });
+
+      setInquiryId(res.inquiryId || `INQ-${Date.now().toString().slice(-6)}`);
+      sounds.playSuccess();
+      setIsSubmitted(true);
+
+      // Fire celebratory confetti burst
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.7 },
+        colors: ['#00f0ff', '#6366f1', '#a855f7', '#34d399', '#ffffff'],
+      });
+    } catch (err: any) {
+      console.error('Failed to submit inquiry:', err);
+      setSubmitError(err.message || 'Unable to deliver your message right now. Please try again or email directly.');
+      sounds.playClick();
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const copyEmailToClipboard = () => {
@@ -199,27 +215,29 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
               <div className="success-badge-icon">
                 <Check size={36} />
               </div>
-              <h3 className="success-title">Message Prepared!</h3>
+              <h3 className="success-title">Message Delivered!</h3>
               <p className="success-msg">
-                Thank you, <strong>{form.name}</strong>. Because no external email server is configured, click below to open your preferred mail client with your pre-filled inquiry, or connect with Chan directly on Telegram.
+                Thank you, <strong>{form.name}</strong>! Your inquiry has been securely saved to Chan's portfolio inbox with Reference{' '}
+                <strong style={{ color: 'var(--accent-cyan)' }}>#{inquiryId}</strong>. Chan usually reviews and responds within 24 hours.
               </p>
 
               <div className="success-actions">
                 <a
                   href={generateMailto()}
-                  className="btn btn-primary"
+                  className="btn btn-secondary"
                   onClick={() => sounds.playClick()}
                 >
-                  <Send size={16} />
-                  <span>Open in Mail Client</span>
+                  <Mail size={16} />
+                  <span>Also Open Mail App</span>
                 </a>
 
                 <button
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-primary"
                   onClick={() => {
                     sounds.playClick();
                     setIsSubmitted(false);
+                    setSubmitError(null);
                     setForm({
                       name: '',
                       email: '',
@@ -324,15 +342,45 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
                 {errors.message && <span className="field-err">{errors.message}</span>}
               </div>
 
+              {/* Error banner if submission failed */}
+              {submitError && (
+                <div style={{
+                  padding: '12px 16px',
+                  borderRadius: '10px',
+                  background: 'rgba(239, 68, 68, 0.12)',
+                  border: '1px solid rgba(239, 68, 68, 0.35)',
+                  color: '#fca5a5',
+                  fontSize: '0.88rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  marginBottom: '1rem'
+                }}>
+                  <AlertCircle size={18} style={{ flexShrink: 0, color: '#ef4444' }} />
+                  <span>{submitError}</span>
+                </div>
+              )}
+
               {/* Submit CTA */}
               <button
                 type="submit"
                 id="submit-contact-btn"
                 className="btn btn-primary w-full"
-                onMouseEnter={() => sounds.playHover()}
+                disabled={isSubmitting}
+                style={isSubmitting ? { opacity: 0.7, cursor: 'not-allowed' } : undefined}
+                onMouseEnter={() => !isSubmitting && sounds.playHover()}
               >
-                <Send size={16} />
-                <span>Send Message</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={16} className="animate-spin" />
+                    <span>Sending to Portfolio Inbox...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send size={16} />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
             </form>
           )}

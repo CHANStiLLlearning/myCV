@@ -4,7 +4,11 @@ import { sounds } from '../utils/soundEffects';
 import { GithubIcon, LinkedinIcon } from './icons';
 import { ArrowUp, Terminal, Clock, Send, Mail } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenAdmin?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
   const [localTime, setLocalTime] = useState<string>('');
 
   useEffect(() => {
@@ -66,9 +70,47 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar: Copyright, Socials, Back to Top */}
         <div className="footer-bottom-row">
-          <p className="copyright-text">
-            © {new Date().getFullYear()} {PERSONAL_INFO.fullName}. Crafted with React, Three.js &amp; TypeScript.
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+            <p className="copyright-text" style={{ margin: 0 }}>
+              © {new Date().getFullYear()} {PERSONAL_INFO.fullName}. Crafted with React, Express &amp; TypeScript.
+            </p>
+            {onOpenAdmin && (
+              <button
+                type="button"
+                id="admin-portal-footer-btn"
+                onClick={() => {
+                  sounds.playClick();
+                  onOpenAdmin();
+                }}
+                className="admin-link-btn"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.04)',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  color: 'var(--text-muted)',
+                  fontSize: '0.72rem',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  padding: '3px 8px',
+                  borderRadius: '6px',
+                  transition: 'all 0.2s ease'
+                }}
+                title="Open Portfolio CMS & Inquiries Portal"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--accent-cyan)';
+                  e.currentTarget.style.borderColor = 'rgba(0, 240, 255, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--text-muted)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                }}
+              >
+                <Terminal size={11} />
+                <span>CMS Admin</span>
+              </button>
+            )}
+          </div>
 
           <div className="footer-social-icons">
             {SOCIAL_LINKS.map((s) => (

@@ -1,17 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SKILL_CATEGORIES } from '../data/portfolioData';
-import type { SceneTheme } from '../types';
+import type { SceneTheme, SkillCategory } from '../types';
 import { SkillsRadarCard } from './SkillsRadarCard';
 import { sounds } from '../utils/soundEffects';
 import { Code2, Boxes, Cpu, Sparkles, Flame } from 'lucide-react';
+import { portfolioApi } from '../services/api';
 
 interface SkillsProps {
   theme: SceneTheme;
 }
 
 export const Skills: React.FC<SkillsProps> = ({ theme }) => {
+  const [skillCategories, setSkillCategories] = useState<SkillCategory[]>(SKILL_CATEGORIES);
   const [selectedCatId, setSelectedCatId] = useState<string>('all');
   const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
+
+  useEffect(() => {
+    let mounted = true;
+    portfolioApi.getSkills()
+      .then((data) => {
+        if (mounted && Array.isArray(data) && data.length > 0) {
+          setSkillCategories(data);
+        }
+      })
+      .catch((err) => {
+        console.warn('Could not load dynamic skills from backend, using static data:', err);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
@@ -33,8 +52,8 @@ export const Skills: React.FC<SkillsProps> = ({ theme }) => {
 
   const displayedCategories =
     selectedCatId === 'all'
-      ? SKILL_CATEGORIES
-      : SKILL_CATEGORIES.filter((c) => c.id === selectedCatId);
+      ? skillCategories
+      : skillCategories.filter((c) => c.id === selectedCatId);
 
   return (
     <section id="skills" className="section-container skills-section">
@@ -45,10 +64,10 @@ export const Skills: React.FC<SkillsProps> = ({ theme }) => {
         </div>
         <h2 className="section-title">
           MODERN SKILLS &amp; <br />
-          <span className="text-gradient">3D CAPABILITIES</span>
+          <span className="text-gradient">ENGINEERING CRAFT</span>
         </h2>
         <p className="section-subtitle">
-          Specialized in high-fidelity user interfaces, modern component systems, and real-time 3D web graphics.
+          Specialized in high-fidelity user interfaces, modern component architectures, and responsive 60fps web applications.
         </p>
       </div>
 
@@ -66,7 +85,7 @@ export const Skills: React.FC<SkillsProps> = ({ theme }) => {
               <span>All Skills</span>
             </button>
 
-            {SKILL_CATEGORIES.map((cat, idx) => (
+            {skillCategories.map((cat, idx) => (
               <button
                 key={cat.id}
                 type="button"

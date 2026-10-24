@@ -10,7 +10,7 @@ if (Test-Path $zipPath) {
 
 $zip = [System.IO.Compression.ZipFile]::Open($zipPath, [System.IO.Compression.ZipArchiveMode]::Create)
 
-Get-ChildItem -Path $distDir -Recurse | Where-Object { -not $_.PSIsContainer } | ForEach-Object {
+Get-ChildItem -Path $distDir -Recurse -Force | Where-Object { -not $_.PSIsContainer } | ForEach-Object {
     $full = $_.FullName
     $rel = $full.Substring($distDir.Length + 1).Replace("\", "/")
     [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, $full, $rel, [System.IO.Compression.CompressionLevel]::Optimal)

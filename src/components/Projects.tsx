@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PROJECTS_DATA } from '../data/portfolioData';
 import type { Project, SceneTheme } from '../types';
 import { sounds } from '../utils/soundEffects';
 import { GithubIcon } from './icons';
-import { Sparkles, ExternalLink, Eye, ArrowUpRight } from 'lucide-react';
+import { Sparkles, ExternalLink, Eye, ArrowUpRight, Heart } from 'lucide-react';
+import { portfolioApi } from '../services/api';
 
 interface ProjectsProps {
   theme: SceneTheme;
@@ -11,14 +12,60 @@ interface ProjectsProps {
 }
 
 export const Projects: React.FC<ProjectsProps> = ({ theme: _theme, onSelectProject }) => {
+  const [projects, setProjects] = useState<Project[]>(PROJECTS_DATA);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [likedProjects, setLikedProjects] = useState<Record<string, boolean>>({});
 
-  const categories = ['All', '3D & WebGL', 'AI & Web Apps', 'Fintech & Dashboards', 'Cultural Heritage'];
+  useEffect(() => {
+    let mounted = true;
+    portfolioApi.getProjects()
+      .then((data) => {
+        if (mounted && Array.isArray(data) && data.length > 0) {
+          setProjects(data);
+        }
+      })
+      .catch((err) => {
+        console.warn('Could not load dynamic projects from backend, using static data:', err);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];
 
   const filteredProjects =
     selectedCategory === 'All'
-      ? PROJECTS_DATA
-      : PROJECTS_DATA.filter((p) => p.category === selectedCategory);
+      ? projects
+      : projects.filter((p) => p.category === selectedCategory);
+
+  const handleLike = async (projectId: string) => {
+    sounds.playClick();
+    const wasLiked = !!likedProjects[projectId];
+    setLikedProjects((prev) => ({ ...prev, [projectId]: !wasLiked }));
+
+    // Optimistic update
+    setProjects((prev) =>
+      prev.map((p) => {
+        if (p.id === projectId) {
+          return { ...p, likes: (p.likes || 0) + (wasLiked ? -1 : 1) };
+        }
+        return p;
+      })
+    );
+
+    try {
+      const res = await portfolioApi.likeProject(projectId);
+      if (res && typeof res.likes === 'number') {
+        setProjects((prev) =>
+          prev.map((p) => (p.id === projectId ? { ...p, likes: res.likes } : p))
+        );
+      }
+    } catch (err) {
+      console.warn('Failed to persist project like to server:', err);
+    }
+  };
 
   const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
@@ -114,17 +161,50 @@ export const Projects: React.FC<ProjectsProps> = ({ theme: _theme, onSelectProje
             <div className="project-card-body">
               <div className="card-header-row">
                 <h3 className="project-card-title">{project.title}</h3>
-                <button
-                  type="button"
-                  className="quick-inspect-icon"
-                  onClick={() => {
-                    sounds.playClick();
-                    onSelectProject(project);
-                  }}
-                  title="Inspect Architecture"
-                >
-                  <ArrowUpRight size={18} />
-                </button>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <button
+                    type="button"
+                    className="project-like-badge"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleLike(project.id);
+                    }}
+                    title="Like this project"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                      background: likedProjects[project.id] ? 'rgba(239, 68, 68, 0.15)' : 'rgba(255, 255, 255, 0.05)',
+                      border: `1px solid ${likedProjects[project.id] ? 'rgba(239, 68, 68, 0.4)' : 'rgba(255, 255, 255, 0.1)'}`,
+                      borderRadius: '16px',
+                      padding: '4px 9px',
+                      fontSize: '0.78rem',
+                      fontWeight: 600,
+                      color: likedProjects[project.id] ? '#ef4444' : 'var(--text-secondary)',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                    }}
+                  >
+                    <Heart
+                      size={13}
+                      fill={likedProjects[project.id] ? '#ef4444' : 'none'}
+                      color={likedProjects[project.id] ? '#ef4444' : 'currentColor'}
+                    />
+                    <span>{project.likes ?? 0}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    className="quick-inspect-icon"
+                    onClick={() => {
+                      sounds.playClick();
+                      onSelectProject(project);
+                    }}
+                    title="Inspect Architecture"
+                  >
+                    <ArrowUpRight size={18} />
+                  </button>
+                </div>
               </div>
 
               <p className="project-card-tagline">{project.tagline}</p>

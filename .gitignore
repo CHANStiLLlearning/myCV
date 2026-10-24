@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Testing & Browser Artifacts
+.playwright-mcp/
+dist-functions/
+*.zip
+*.png
+!public/**/*.png
+!src/assets/**/*.png

@@ -9,6 +9,7 @@ export interface Project {
   liveUrl: string;
   githubUrl: string;
   featured: boolean;
+  likes?: number;
   metrics?: { label: string; value: string }[];
   highlights?: string[];
 }

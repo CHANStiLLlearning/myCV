@@ -12,16 +12,24 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
 import { ProjectModal } from './components/ProjectModal';
+import { AdminModal } from './components/AdminModal';
+import { portfolioApi } from './services/api';
 
 export function App() {
   const [currentTheme, setCurrentTheme] = useState<SceneTheme>('cyan');
   const [isResumeOpen, setIsResumeOpen] = useState<boolean>(false);
+  const [isAdminOpen, setIsAdminOpen] = useState<boolean>(false);
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
 
-  // Apply theme data attribute to body
+  // Apply theme data attribute to body & record visit telemetry
   useEffect(() => {
     document.body.setAttribute('data-theme', currentTheme);
   }, [currentTheme]);
+
+  useEffect(() => {
+    // Record visit on backend
+    portfolioApi.recordVisit().catch(() => {});
+  }, []);
 
   return (
     <div className="portfolio-app">
@@ -55,7 +63,7 @@ export function App() {
       </main>
 
       {/* Footer with Phnom Penh Local Clock */}
-      <Footer />
+      <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
 
       {/* Full Curriculum Vitae / Resume Viewer Modal */}
       <ResumeModal
@@ -67,6 +75,12 @@ export function App() {
       <ProjectModal
         project={activeModalProject}
         onClose={() => setActiveModalProject(null)}
+      />
+
+      {/* Portfolio CMS & Inquiries Admin Modal */}
+      <AdminModal
+        isOpen={isAdminOpen}
+        onClose={() => setIsAdminOpen(false)}
       />
     </div>
   );

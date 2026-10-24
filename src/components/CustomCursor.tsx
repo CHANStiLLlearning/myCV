@@ -8,11 +8,15 @@ export const CustomCursor: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only enable custom cursor if fine pointer (mouse)
-    const media = window.matchMedia('(pointer: fine)');
-    if (!media.matches) return;
+    // Only enable custom cursor if on desktop (mouse pointer & width > 900px)
+    const checkIsFinePointer = () => {
+      const isFine = window.matchMedia('(pointer: fine)').matches;
+      const isWideEnough = window.innerWidth > 900;
+      setIsVisible(isFine && isWideEnough);
+    };
 
-    setIsVisible(true);
+    checkIsFinePointer();
+    window.addEventListener('resize', checkIsFinePointer);
 
     const onMouseMove = (e: MouseEvent) => {
       setPos({ x: e.clientX, y: e.clientY });
@@ -60,6 +64,7 @@ export const CustomCursor: React.FC = () => {
       window.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
       window.removeEventListener('mouseover', handleElementHover);
+      window.removeEventListener('resize', checkIsFinePointer);
       cancelAnimationFrame(animId);
     };
   }, [pos.x, pos.y]);
