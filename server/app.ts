@@ -185,8 +185,8 @@ app.post('/api/contact', (req: Request, res: Response) => {
   try {
     const { name, email, subject, budget, message } = req.body;
 
-    if (!name || !email || !message) {
-      res.status(400).json({ error: 'Name, email, and message are required fields.' });
+    if (!name || !email) {
+      res.status(400).json({ error: 'Name and email are required fields.' });
       return;
     }
 
@@ -198,9 +198,9 @@ app.post('/api/contact', (req: Request, res: Response) => {
     const created = db.createMessage({
       name: String(name).trim(),
       email: String(email).trim(),
-      subject: String(subject || 'General Inquiry').trim(),
-      budget: String(budget || 'Undisclosed').trim(),
-      message: String(message).trim(),
+      subject: String(subject || 'General Connection').trim(),
+      budget: String(budget || 'N/A').trim(),
+      message: String(message || `Connection request from ${name} (${email})`).trim(),
       ip: (req.headers['x-forwarded-for'] as string) || req.socket.remoteAddress,
       userAgent: req.headers['user-agent']
     });

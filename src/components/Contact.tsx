@@ -14,18 +14,12 @@ interface ContactProps {
 interface FormState {
   name: string;
   email: string;
-  subject: string;
-  budget: string;
-  message: string;
 }
 
 export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
   const [form, setForm] = useState<FormState>({
     name: '',
     email: '',
-    subject: '3D Web Experience',
-    budget: '$1k - $3k',
-    message: '',
   });
 
   const [errors, setErrors] = useState<Partial<FormState>>({});
@@ -42,9 +36,6 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
       newErrors.email = 'Please provide your email address';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       newErrors.email = 'Please provide a valid email format';
-    }
-    if (!form.message.trim() || form.message.length < 10) {
-      newErrors.message = 'Please share a brief message (minimum 10 characters)';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -64,9 +55,9 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
       const res = await portfolioApi.sendContact({
         name: form.name.trim(),
         email: form.email.trim(),
-        subject: form.subject,
-        budget: form.budget,
-        message: form.message.trim(),
+        subject: 'General Connection',
+        budget: 'N/A',
+        message: `Direct connection request from ${form.name.trim()} (${form.email.trim()}).`,
       });
 
       setInquiryId(res.inquiryId || `INQ-${Date.now().toString().slice(-6)}`);
@@ -97,9 +88,9 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
   };
 
   const generateMailto = () => {
-    const sub = encodeURIComponent(`[Inquiry] ${form.subject} from ${form.name}`);
+    const sub = encodeURIComponent(`[Inquiry] Connection from ${form.name}`);
     const body = encodeURIComponent(
-      `Hi Chan,\n\n${form.message}\n\nBudget: ${form.budget}\nFrom: ${form.name} (${form.email})`
+      `Hi KEO KIMCHAN,\n\nI would like to get in touch with you regarding your frontend engineering work.\n\nFrom: ${form.name} (${form.email})`
     );
     return `mailto:${PERSONAL_INFO.email}?subject=${sub}&body=${body}`;
   };
@@ -241,9 +232,6 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
                     setForm({
                       name: '',
                       email: '',
-                      subject: '3D Web Experience',
-                      budget: '$1k - $3k',
-                      message: '',
                     });
                   }}
                 >
@@ -285,61 +273,6 @@ export const Contact: React.FC<ContactProps> = ({ theme: _theme }) => {
                   />
                   {errors.email && <span className="field-err">{errors.email}</span>}
                 </div>
-              </div>
-
-              <div className="form-row">
-                {/* Subject Selector */}
-                <div className="form-group">
-                  <label htmlFor="contact-subject" className="form-label">
-                    Project Focus
-                  </label>
-                  <select
-                    id="contact-subject"
-                    className="form-input form-select"
-                    value={form.subject}
-                    onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                  >
-                    <option value="3D Web Experience">3D Web Experience / Three.js</option>
-                    <option value="Full Frontend Application">Full Frontend Application</option>
-                    <option value="Design System & UI/UX">Design System &amp; UI/UX</option>
-                    <option value="Performance Optimization">Performance &amp; Core Web Vitals</option>
-                    <option value="Full-time Job Opportunity">Full-time Job Opportunity</option>
-                  </select>
-                </div>
-
-                {/* Budget Range */}
-                <div className="form-group">
-                  <label htmlFor="contact-budget" className="form-label">
-                    Estimated Budget
-                  </label>
-                  <select
-                    id="contact-budget"
-                    className="form-input form-select"
-                    value={form.budget}
-                    onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                  >
-                    <option value="< $1,000">&lt; $1,000 USD</option>
-                    <option value="$1,000 - $3,000">$1,000 — $3,000 USD</option>
-                    <option value="$3,000 - $7,000">$3,000 — $7,000 USD</option>
-                    <option value="$7,000+">$7,000+ USD</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Message */}
-              <div className="form-group">
-                <label htmlFor="contact-message" className="form-label">
-                  Project Details <span className="req">*</span>
-                </label>
-                <textarea
-                  id="contact-message"
-                  rows={4}
-                  className={`form-input form-textarea ${errors.message ? 'input-error' : ''}`}
-                  placeholder="Tell me about your vision, timeline, and goals..."
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                />
-                {errors.message && <span className="field-err">{errors.message}</span>}
               </div>
 
               {/* Error banner if submission failed */}
