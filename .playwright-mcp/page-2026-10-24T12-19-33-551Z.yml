@@ -1,0 +1,621 @@
+- generic [ref=f4e3]:
+  - generic [ref=f4e4]:
+    - button [ref=f4e5] [cursor=pointer]:
+      - generic [ref=f4e8]: BG Video
+    - button [ref=f4e9] [cursor=pointer]:
+      - generic [ref=f4e15]: Dim
+  - banner [ref=f4e16]:
+    - navigation "Main Navigation" [ref=f4e17]:
+      - link "CHAN Available" [ref=f4e18] [cursor=pointer]:
+        - /url: "#hero"
+        - generic [ref=f4e22]:
+          - generic [ref=f4e23]: CHAN
+          - generic [ref=f4e24]: Available
+      - list [ref=f4e27]:
+        - listitem [ref=f4e28]:
+          - link "Home" [ref=f4e29] [cursor=pointer]:
+            - /url: "#hero"
+        - listitem [ref=f4e31]:
+          - link "About" [ref=f4e32] [cursor=pointer]:
+            - /url: "#about"
+        - listitem [ref=f4e33]:
+          - link "Skills" [ref=f4e34] [cursor=pointer]:
+            - /url: "#skills"
+        - listitem [ref=f4e35]:
+          - link "Projects" [ref=f4e36] [cursor=pointer]:
+            - /url: "#projects"
+        - listitem [ref=f4e37]:
+          - link "Experience" [ref=f4e38] [cursor=pointer]:
+            - /url: "#experience"
+        - listitem [ref=f4e39]:
+          - link "Contact" [ref=f4e40] [cursor=pointer]:
+            - /url: "#contact"
+      - generic [ref=f4e41]:
+        - button "Cycle visual theme" [ref=f4e42] [cursor=pointer]
+        - button "Toggle sound effects" [ref=f4e44] [cursor=pointer]
+        - link "Let's Talk" [ref=f4e49] [cursor=pointer]:
+          - /url: "#contact"
+  - main [ref=f4e54]:
+    - generic [ref=f4e55]:
+      - generic [ref=f4e56]:
+        - generic [ref=f4e57]:
+          - generic [ref=f4e58]:
+            - generic [ref=f4e59]: CREATIVE FRONTEND WEB DEVELOPER
+            - generic [ref=f4e64]: Phnom Penh, Cambodia
+          - heading "CRAFTING DIGITAL EXPERIENCES." [level=1] [ref=f4e69]
+          - paragraph [ref=f4e70]:
+            - text: Hello, I’m
+            - strong [ref=f4e71]: CHAN
+            - text: . I build fluid, high-performance web applications and interactive digital experiences. Bridging the gap between cutting-edge creative aesthetics and rigorous frontend engineering.
+          - generic [ref=f4e72]:
+            - generic [ref=f4e73]: React.js
+            - generic [ref=f4e74]: TypeScript
+            - generic [ref=f4e75]: Modern CSS3
+            - generic [ref=f4e76]: Tailwind CSS
+            - generic [ref=f4e77]: 60 FPS Motion
+          - generic [ref=f4e78]:
+            - button "Explore My Work" [ref=f4e79] [cursor=pointer]
+            - button "Get In Touch" [ref=f4e83] [cursor=pointer]
+            - button "View CV" [ref=f4e88] [cursor=pointer]
+          - generic [ref=f4e93]:
+            - generic [ref=f4e94]:
+              - generic [ref=f4e95]: 3+
+              - generic [ref=f4e96]: Years Experience
+            - generic [ref=f4e97]:
+              - generic [ref=f4e98]: 18+
+              - generic [ref=f4e99]: Projects Completed
+            - generic [ref=f4e100]:
+              - generic [ref=f4e101]: 98%
+              - generic [ref=f4e102]: Core Web Vitals Avg
+            - generic [ref=f4e103]:
+              - generic [ref=f4e104]: 100%
+              - generic [ref=f4e105]: Client Satisfaction
+        - generic [ref=f4e107]:
+          - generic "Interactive 3D Portrait of Chan Sovannarith" [ref=f4e108]:
+            - img "Chan Sovannarith - 3D Interactive Portrait" [ref=f4e110]
+            - generic:
+              - generic: 3D HOLOGRAPHIC MATRIX
+              - generic: "X: 0° / Y: 0°"
+            - generic:
+              - generic:
+                - heading "Chan Sovannarith" [level=3]
+                - generic: CHAN
+              - paragraph: Creative Frontend Web Developer
+              - generic:
+                - generic: Fluid 60 FPS
+                - generic: Zero Lag
+                - generic: Phnom Penh
+          - generic [ref=f4e111]:
+            - 'button "3D Orbit: On" [ref=f4e112] [cursor=pointer]'
+            - generic [ref=f4e118]:
+              - generic [ref=f4e119]: "Theme:"
+              - generic [ref=f4e120]:
+                - button "Theme cyan" [ref=f4e121] [cursor=pointer]
+                - button "Theme violet" [ref=f4e122] [cursor=pointer]
+                - button "Theme emerald" [ref=f4e123] [cursor=pointer]
+                - button "Theme amber" [ref=f4e124] [cursor=pointer]
+      - button "Scroll to About section" [ref=f4e125] [cursor=pointer]:
+        - generic [ref=f4e126]: SCROLL TO DISCOVER
+    - generic [ref=f4e129]:
+      - generic [ref=f4e130]:
+        - generic [ref=f4e131]: ABOUT THE DEVELOPER
+        - heading "BRIDGING CREATIVE ART AND RIGOROUS CODE" [level=2] [ref=f4e136]:
+          - text: BRIDGING CREATIVE ART
+          - generic [ref=f4e137]: AND RIGOROUS CODE
+        - paragraph [ref=f4e138]: Passionate about crafting websites that make an immediate visual statement without compromising on speed or accessibility.
+      - generic [ref=f4e139]:
+        - generic [ref=f4e140] [cursor=pointer]:
+          - img "CHAN - Frontend Developer" [ref=f4e142]
+          - generic [ref=f4e147]:
+            - generic [ref=f4e148]: BASED IN PHNOM PENH, CAMBODIA
+            - heading "Chan Sovannarith" [level=3] [ref=f4e151]
+            - paragraph [ref=f4e152]: Creative Frontend Web Developer
+            - generic [ref=f4e153]:
+              - generic [ref=f4e154]: Frontend Engineer
+              - generic [ref=f4e155]: Performance & UI
+              - generic [ref=f4e156]: UI/UX Craftsman
+            - generic [ref=f4e158]:
+              - generic [ref=f4e159]:
+                - generic [ref=f4e160]: 3+
+                - generic [ref=f4e161]: Years Code
+              - generic [ref=f4e162]:
+                - generic [ref=f4e163]: 100%
+                - generic [ref=f4e164]: Commitment
+              - generic [ref=f4e165]:
+                - generic [ref=f4e166]: Remote
+                - generic [ref=f4e167]: Worldwide
+        - generic [ref=f4e168]:
+          - generic [ref=f4e169]:
+            - paragraph [ref=f4e170]: I am a creative frontend developer based in Cambodia, driven by the intersection of modern web engineering, fluid motion, and real-time 3D graphics.
+            - paragraph [ref=f4e171]: Over the past 3+ years, I have specialized in turning ambitious concepts into smooth 60fps web applications. My foundation is built upon deep mastery of HTML, modern CSS architectures, JavaScript (ESNext), React.js, and TypeScript, amplified by WebGL and Three.js.
+            - paragraph [ref=f4e172]: I believe that the web should not just present information—it should captivate and respond intuitively. Whether crafting spatial commerce interfaces or lightning-fast dashboards, I focus relentlessly on responsive precision, accessibility, and micro-interactions.
+          - heading "Core Engineering Principles" [level=4] [ref=f4e173]
+          - generic [ref=f4e178]:
+            - generic [ref=f4e179] [cursor=pointer]:
+              - heading "Visual Polish & Precision" [level=5] [ref=f4e185]
+              - paragraph [ref=f4e186]: Every padding, font weight, and micro-interaction is intentionally crafted to feel tactile and premium.
+            - generic [ref=f4e187] [cursor=pointer]:
+              - heading "60 FPS Performance" [level=5] [ref=f4e192]
+              - paragraph [ref=f4e193]: GPU-accelerated transforms, zero layout shifts, optimized Three.js geometries, and tight bundles.
+            - generic [ref=f4e194] [cursor=pointer]:
+              - heading "Clean & Strict Code" [level=5] [ref=f4e198]
+              - paragraph [ref=f4e199]: Type-safe TypeScript, idiomatic React hooks, maintainable folder patterns, and zero bloat.
+            - generic [ref=f4e200] [cursor=pointer]:
+              - heading "Obsessive Learner" [level=5] [ref=f4e204]
+              - paragraph [ref=f4e205]: True to my alias "stilllearning"—constantly exploring new WebGL techniques, shaders, and web standards.
+    - generic [ref=f4e206]:
+      - generic [ref=f4e207]:
+        - generic [ref=f4e208]: TECHNICAL ARSENAL
+        - heading "MODERN SKILLS & 3D CAPABILITIES" [level=2] [ref=f4e213]:
+          - text: MODERN SKILLS &
+          - generic [ref=f4e214]: 3D CAPABILITIES
+        - paragraph [ref=f4e215]: Specialized in high-fidelity user interfaces, modern component systems, and real-time 3D web graphics.
+      - generic [ref=f4e216]:
+        - generic [ref=f4e217]:
+          - tablist "Skills Filter" [ref=f4e218]:
+            - button "All Skills" [ref=f4e219] [cursor=pointer]
+            - button "Frontend Core" [ref=f4e224] [cursor=pointer]
+            - button "3D & Creative Tech" [ref=f4e230] [cursor=pointer]
+            - button "Engineering & Workflow" [ref=f4e242] [cursor=pointer]
+          - generic [ref=f4e247]:
+            - generic [ref=f4e248]:
+              - generic [ref=f4e249]:
+                - heading "Frontend Core" [level=3] [ref=f4e255]
+                - generic [ref=f4e256]: 6 Technologies
+              - generic [ref=f4e257]:
+                - generic [ref=f4e258] [cursor=pointer]:
+                  - generic [ref=f4e259]:
+                    - generic [ref=f4e260]:
+                      - generic [ref=f4e261]: React.js
+                      - generic "Core Specialization" [ref=f4e262]: Core
+                    - generic [ref=f4e266]: 3+ yrs
+                  - generic [ref=f4e269]:
+                    - generic [ref=f4e270]: Proficiency
+                    - generic [ref=f4e271]: 95%
+                - generic [ref=f4e272] [cursor=pointer]:
+                  - generic [ref=f4e273]:
+                    - generic [ref=f4e274]:
+                      - generic [ref=f4e275]: JavaScript (ESNext)
+                      - generic "Core Specialization" [ref=f4e276]: Core
+                    - generic [ref=f4e280]: 4+ yrs
+                  - generic [ref=f4e283]:
+                    - generic [ref=f4e284]: Proficiency
+                    - generic [ref=f4e285]: 96%
+                - generic [ref=f4e286] [cursor=pointer]:
+                  - generic [ref=f4e287]:
+                    - generic [ref=f4e288]:
+                      - generic [ref=f4e289]: TypeScript
+                      - generic "Core Specialization" [ref=f4e290]: Core
+                    - generic [ref=f4e294]: 3 yrs
+                  - generic [ref=f4e297]:
+                    - generic [ref=f4e298]: Proficiency
+                    - generic [ref=f4e299]: 90%
+                - generic [ref=f4e300] [cursor=pointer]:
+                  - generic [ref=f4e301]:
+                    - generic [ref=f4e302]: HTML5 Semantic Web
+                    - generic [ref=f4e304]: 4+ yrs
+                  - generic [ref=f4e307]:
+                    - generic [ref=f4e308]: Proficiency
+                    - generic [ref=f4e309]: 98%
+                - generic [ref=f4e310] [cursor=pointer]:
+                  - generic [ref=f4e311]:
+                    - generic [ref=f4e312]: Modern CSS & Animations
+                    - generic [ref=f4e314]: 4+ yrs
+                  - generic [ref=f4e317]:
+                    - generic [ref=f4e318]: Proficiency
+                    - generic [ref=f4e319]: 95%
+                - generic [ref=f4e320] [cursor=pointer]:
+                  - generic [ref=f4e321]:
+                    - generic [ref=f4e322]: Tailwind CSS
+                    - generic [ref=f4e324]: 3 yrs
+                  - generic [ref=f4e327]:
+                    - generic [ref=f4e328]: Proficiency
+                    - generic [ref=f4e329]: 92%
+            - generic [ref=f4e330]:
+              - generic [ref=f4e331]:
+                - heading "3D & Creative Tech" [level=3] [ref=f4e343]
+                - generic [ref=f4e344]: 5 Technologies
+              - generic [ref=f4e345]:
+                - generic [ref=f4e346] [cursor=pointer]:
+                  - generic [ref=f4e347]:
+                    - generic [ref=f4e348]:
+                      - generic [ref=f4e349]: Three.js
+                      - generic "Core Specialization" [ref=f4e350]: Core
+                    - generic [ref=f4e354]: 2+ yrs
+                  - generic [ref=f4e357]:
+                    - generic [ref=f4e358]: Proficiency
+                    - generic [ref=f4e359]: 88%
+                - generic [ref=f4e360] [cursor=pointer]:
+                  - generic [ref=f4e361]:
+                    - generic [ref=f4e362]: WebGL & Canvas 2D
+                    - generic [ref=f4e364]: 2 yrs
+                  - generic [ref=f4e367]:
+                    - generic [ref=f4e368]: Proficiency
+                    - generic [ref=f4e369]: 82%
+                - generic [ref=f4e370] [cursor=pointer]:
+                  - generic [ref=f4e371]:
+                    - generic [ref=f4e372]: Shader Basics (GLSL)
+                    - generic [ref=f4e374]: 1.5 yrs
+                  - generic [ref=f4e377]:
+                    - generic [ref=f4e378]: Proficiency
+                    - generic [ref=f4e379]: 75%
+                - generic [ref=f4e380] [cursor=pointer]:
+                  - generic [ref=f4e381]:
+                    - generic [ref=f4e382]: Camera & Lighting Math
+                    - generic [ref=f4e384]: 2 yrs
+                  - generic [ref=f4e387]:
+                    - generic [ref=f4e388]: Proficiency
+                    - generic [ref=f4e389]: 85%
+                - generic [ref=f4e390] [cursor=pointer]:
+                  - generic [ref=f4e391]:
+                    - generic [ref=f4e392]: Blender & 3D Asset Prep
+                    - generic [ref=f4e394]: 2 yrs
+                  - generic [ref=f4e397]:
+                    - generic [ref=f4e398]: Proficiency
+                    - generic [ref=f4e399]: 78%
+            - generic [ref=f4e400]:
+              - generic [ref=f4e401]:
+                - heading "Engineering & Workflow" [level=3] [ref=f4e406]
+                - generic [ref=f4e407]: 6 Technologies
+              - generic [ref=f4e408]:
+                - generic [ref=f4e409] [cursor=pointer]:
+                  - generic [ref=f4e410]:
+                    - generic [ref=f4e411]: Vite & Modern Bundlers
+                    - generic [ref=f4e413]: 3 yrs
+                  - generic [ref=f4e416]:
+                    - generic [ref=f4e417]: Proficiency
+                    - generic [ref=f4e418]: 92%
+                - generic [ref=f4e419] [cursor=pointer]:
+                  - generic [ref=f4e420]:
+                    - generic [ref=f4e421]: Git & GitHub Collaboration
+                    - generic [ref=f4e423]: 3+ yrs
+                  - generic [ref=f4e426]:
+                    - generic [ref=f4e427]: Proficiency
+                    - generic [ref=f4e428]: 90%
+                - generic [ref=f4e429] [cursor=pointer]:
+                  - generic [ref=f4e430]:
+                    - generic [ref=f4e431]:
+                      - generic [ref=f4e432]: Responsive & Mobile First
+                      - generic "Core Specialization" [ref=f4e433]: Core
+                    - generic [ref=f4e437]: 4 yrs
+                  - generic [ref=f4e440]:
+                    - generic [ref=f4e441]: Proficiency
+                    - generic [ref=f4e442]: 98%
+                - generic [ref=f4e443] [cursor=pointer]:
+                  - generic [ref=f4e444]:
+                    - generic [ref=f4e445]: Web Performance & CWV
+                    - generic [ref=f4e447]: 2+ yrs
+                  - generic [ref=f4e450]:
+                    - generic [ref=f4e451]: Proficiency
+                    - generic [ref=f4e452]: 90%
+                - generic [ref=f4e453] [cursor=pointer]:
+                  - generic [ref=f4e454]:
+                    - generic [ref=f4e455]: REST & API Integration
+                    - generic [ref=f4e457]: 3 yrs
+                  - generic [ref=f4e460]:
+                    - generic [ref=f4e461]: Proficiency
+                    - generic [ref=f4e462]: 92%
+                - generic [ref=f4e463] [cursor=pointer]:
+                  - generic [ref=f4e464]:
+                    - generic [ref=f4e465]: Playwright & Testing
+                    - generic [ref=f4e467]: 1.5 yrs
+                  - generic [ref=f4e470]:
+                    - generic [ref=f4e471]: Proficiency
+                    - generic [ref=f4e472]: 82%
+        - generic [ref=f4e474] [cursor=pointer]:
+          - generic [ref=f4e475]:
+            - generic [ref=f4e476]:
+              - generic [ref=f4e477]: DOMAIN ARCHITECTURE
+              - generic [ref=f4e478]: Pure CSS • 0% GPU
+            - heading "Frontend Core" [level=4] [ref=f4e479]
+            - paragraph [ref=f4e480]: React.js • JavaScript (ESNext) • TypeScript
+          - generic [ref=f4e481]:
+            - generic [ref=f4e492]: ARCHITECTURE
+            - generic [ref=f4e493]: SPEED
+            - generic [ref=f4e494]: UI/UX
+            - generic [ref=f4e495]: MODULARITY
+          - generic [ref=f4e496]:
+            - generic [ref=f4e497]:
+              - generic [ref=f4e498]: Responsive Architecture
+              - generic [ref=f4e504]: 98%
+            - generic [ref=f4e508]:
+              - generic [ref=f4e509]: Type Safety & Modularity
+              - generic [ref=f4e514]: 94%
+            - generic [ref=f4e518]:
+              - generic [ref=f4e519]: Core Web Vitals & Speed
+              - generic [ref=f4e524]: 99%
+            - generic [ref=f4e528]:
+              - generic [ref=f4e529]: Interaction Polish
+              - generic [ref=f4e533]: 96%
+          - generic [ref=f4e537]:
+            - generic [ref=f4e538]: Native CSS Hardware Acceleration
+            - generic [ref=f4e541]: Zero GPU/Battery Drain
+    - generic [ref=f4e544]:
+      - generic [ref=f4e545]:
+        - generic [ref=f4e546]: FEATURED WORK
+        - heading "SELECTED 3D & WEB APPLICATIONS" [level=2] [ref=f4e551]:
+          - text: SELECTED
+          - generic [ref=f4e552]: 3D & WEB APPLICATIONS
+        - paragraph [ref=f4e553]: Engineered with performance, 3D spatial fidelity, and intuitive design. Hover over cards for 3D tilt.
+      - generic [ref=f4e554]:
+        - button "All" [ref=f4e555] [cursor=pointer]
+        - button "3D & WebGL" [ref=f4e556] [cursor=pointer]
+        - button "AI & Web Apps" [ref=f4e557] [cursor=pointer]
+        - button "Fintech & Dashboards" [ref=f4e558] [cursor=pointer]
+        - button "Cultural Heritage" [ref=f4e559] [cursor=pointer]
+      - generic [ref=f4e560]:
+        - generic [ref=f4e561] [cursor=pointer]:
+          - generic [ref=f4e562]:
+            - img "CyberStep | Spatial 3D Commerce" [ref=f4e563]
+            - generic [ref=f4e565]: 3D & WebGL
+            - button "View details of CyberStep | Spatial 3D Commerce" [ref=f4e566]:
+              - generic [ref=f4e570]: Deep Dive
+          - generic [ref=f4e571]:
+            - generic [ref=f4e572]:
+              - heading "CyberStep | Spatial 3D Commerce" [level=3] [ref=f4e573]
+              - button "Inspect Architecture" [ref=f4e574]
+            - paragraph [ref=f4e578]: Interactive 3D product customization engine with WebGL lighting
+            - paragraph [ref=f4e579]: A futuristic spatial e-commerce flagship prototype for custom cyberpunk sneakers. Built with Three.js and React, featuring real-time material shader swaps, dynamic studio lighting tracks, interactive 360° orbital exploration, and responsive checkout flows.
+            - generic [ref=f4e580]:
+              - generic [ref=f4e581]:
+                - generic [ref=f4e582]: 60 FPS stable
+                - generic [ref=f4e583]: Frame Rate
+              - generic [ref=f4e584]:
+                - generic [ref=f4e585]: < 1.1s
+                - generic [ref=f4e586]: Load Time
+            - generic [ref=f4e587]:
+              - generic [ref=f4e588]: React
+              - generic [ref=f4e589]: Three.js
+              - generic [ref=f4e590]: WebGL
+              - generic [ref=f4e591]: TypeScript
+              - generic [ref=f4e592]: CSS Modules
+            - generic [ref=f4e593]:
+              - link "Live Demo" [ref=f4e594]:
+                - /url: https://cyberstep-demo.vercel.app
+              - link "Source" [ref=f4e600]:
+                - /url: https://github.com/chan-stilllearning/cyberstep-3d-commerce
+              - button "Details" [ref=f4e605]
+        - generic [ref=f4e607] [cursor=pointer]:
+          - generic [ref=f4e608]:
+            - img "Aetheria | AI Node Prompt Studio" [ref=f4e609]
+            - generic [ref=f4e611]: AI & Web Apps
+            - button "View details of Aetheria | AI Node Prompt Studio" [ref=f4e612]:
+              - generic [ref=f4e616]: Deep Dive
+          - generic [ref=f4e617]:
+            - generic [ref=f4e618]:
+              - heading "Aetheria | AI Node Prompt Studio" [level=3] [ref=f4e619]
+              - button "Inspect Architecture" [ref=f4e620]
+            - paragraph [ref=f4e624]: Visual node-based canvas for orchestrating multi-step AI reasoning pipelines
+            - paragraph [ref=f4e625]: An advanced generative prompt engineering interface featuring an infinite interactive canvas, draggable LLM workflow nodes, live output stream monitors, and dynamic connection wires with neon pulses.
+            - generic [ref=f4e626]:
+              - generic [ref=f4e627]:
+                - generic [ref=f4e628]: 60 FPS smooth pan/zoom
+                - generic [ref=f4e629]: Canvas Rendering
+              - generic [ref=f4e630]:
+                - generic [ref=f4e631]: 100+ simultaneous
+                - generic [ref=f4e632]: Node Capacity
+            - generic [ref=f4e633]:
+              - generic [ref=f4e634]: React
+              - generic [ref=f4e635]: TypeScript
+              - generic [ref=f4e636]: HTML5 Canvas
+              - generic [ref=f4e637]: Tailwind CSS
+              - generic [ref=f4e638]: State Machine
+            - generic [ref=f4e639]:
+              - link "Live Demo" [ref=f4e640]:
+                - /url: https://aetheria-studio.vercel.app
+              - link "Source" [ref=f4e646]:
+                - /url: https://github.com/chan-stilllearning/aetheria-prompt-canvas
+              - button "Details" [ref=f4e651]
+        - generic [ref=f4e653] [cursor=pointer]:
+          - generic [ref=f4e654]:
+            - img "OmniPulse | Real-Time Market Terminal" [ref=f4e655]
+            - generic [ref=f4e657]: Fintech & Dashboards
+            - button "View details of OmniPulse | Real-Time Market Terminal" [ref=f4e658]:
+              - generic [ref=f4e662]: Deep Dive
+          - generic [ref=f4e663]:
+            - generic [ref=f4e664]:
+              - heading "OmniPulse | Real-Time Market Terminal" [level=3] [ref=f4e665]
+              - button "Inspect Architecture" [ref=f4e666]
+            - paragraph [ref=f4e670]: High-density crypto & financial intelligence dashboard
+            - paragraph [ref=f4e671]: A ultra-low-latency financial dashboard built for active traders. Includes real-time candlestick charts, live order book visualizers with bid/ask depth walls, multi-timeframe toggles, and instant position metrics.
+            - generic [ref=f4e672]:
+              - generic [ref=f4e673]:
+                - generic [ref=f4e674]: < 15ms
+                - generic [ref=f4e675]: Tick Latency
+              - generic [ref=f4e676]:
+                - generic [ref=f4e677]: 50k+ buffered
+                - generic [ref=f4e678]: Data Points
+            - generic [ref=f4e679]:
+              - generic [ref=f4e680]: React.js
+              - generic [ref=f4e681]: TypeScript
+              - generic [ref=f4e682]: WebSockets
+              - generic [ref=f4e683]: Canvas 2D
+              - generic [ref=f4e684]: CSS Grid
+            - generic [ref=f4e685]:
+              - link "Live Demo" [ref=f4e686]:
+                - /url: https://omnipulse-terminal.vercel.app
+              - link "Source" [ref=f4e692]:
+                - /url: https://github.com/chan-stilllearning/omnipulse-trading-dashboard
+              - button "Details" [ref=f4e697]
+        - generic [ref=f4e699] [cursor=pointer]:
+          - generic [ref=f4e700]:
+            - img "The Digital Angkor Project" [ref=f4e701]
+            - generic [ref=f4e703]: Cultural Heritage
+            - button "View details of The Digital Angkor Project" [ref=f4e704]:
+              - generic [ref=f4e708]: Deep Dive
+          - generic [ref=f4e709]:
+            - generic [ref=f4e710]:
+              - heading "The Digital Angkor Project" [level=3] [ref=f4e711]
+              - button "Inspect Architecture" [ref=f4e712]
+            - paragraph [ref=f4e716]: 3D interactive heritage preservation & virtual museum showcase
+            - paragraph [ref=f4e717]: An immersive digital preservation project honoring Cambodia’s ancient Khmer heritage. Features photogrammetry 3D scans of 12th-century Angkor Wat temple sculptures with holographic laser grid overlays, spatial coordinates, and interactive historical annotations.
+            - generic [ref=f4e718]:
+              - generic [ref=f4e719]:
+                - generic [ref=f4e720]: 1.1M points
+                - generic [ref=f4e721]: Point Cloud
+              - generic [ref=f4e722]:
+                - generic [ref=f4e723]: Hologram Wireframe
+                - generic [ref=f4e724]: Shader Pass
+            - generic [ref=f4e725]:
+              - generic [ref=f4e726]: Three.js
+              - generic [ref=f4e727]: WebGL
+              - generic [ref=f4e728]: React
+              - generic [ref=f4e729]: Audio Spatialization
+              - generic [ref=f4e730]: TypeScript
+            - generic [ref=f4e731]:
+              - link "Live Demo" [ref=f4e732]:
+                - /url: https://digital-angkor-showcase.vercel.app
+              - link "Source" [ref=f4e738]:
+                - /url: https://github.com/chan-stilllearning/digital-angkor-heritage-3d
+              - button "Details" [ref=f4e743]
+    - generic [ref=f4e745]:
+      - generic [ref=f4e746]:
+        - generic [ref=f4e747]: CAREER & GROWTH
+        - heading "EXPERIENCE & LEARNING MILESTONES" [level=2] [ref=f4e752]:
+          - text: EXPERIENCE &
+          - generic [ref=f4e753]: LEARNING MILESTONES
+        - paragraph [ref=f4e754]: A progression of dedicated web development, client challenges, and ongoing exploration of 3D technologies.
+      - generic [ref=f4e757]:
+        - generic [ref=f4e762] [cursor=pointer]:
+          - generic [ref=f4e763]:
+            - generic [ref=f4e764]: 2024 — Present
+            - generic [ref=f4e768]: Phnom Penh, Cambodia & Remote
+          - heading "Lead Creative Frontend Developer" [level=3] [ref=f4e773]
+          - heading "Independent / Studio Collaborations" [level=4] [ref=f4e774]
+          - paragraph [ref=f4e775]: Engineering interactive 3D web applications, marketing showpieces, and SaaS interfaces for global clients. Focused on Three.js, React, and seamless user experiences.
+          - generic [ref=f4e776]:
+            - generic [ref=f4e777]: React
+            - generic [ref=f4e778]: Three.js
+            - generic [ref=f4e779]: TypeScript
+            - generic [ref=f4e780]: Design Systems
+            - generic [ref=f4e781]: Performance
+        - generic [ref=f4e786] [cursor=pointer]:
+          - generic [ref=f4e787]:
+            - generic [ref=f4e788]: 2023 — 2024
+            - generic [ref=f4e792]: Phnom Penh, Cambodia
+          - heading "Frontend Web Developer" [level=3] [ref=f4e797]
+          - heading "Digital Innovation Hub" [level=4] [ref=f4e798]
+          - paragraph [ref=f4e799]: Developed modern web dashboards, responsive e-commerce portals, and component design systems. Optimized Core Web Vitals across client web assets resulting in 40% faster load times.
+          - generic [ref=f4e800]:
+            - generic [ref=f4e801]: JavaScript
+            - generic [ref=f4e802]: Tailwind CSS
+            - generic [ref=f4e803]: React.js
+            - generic [ref=f4e804]: REST APIs
+            - generic [ref=f4e805]: UI/UX
+        - generic [ref=f4e810] [cursor=pointer]:
+          - generic [ref=f4e811]:
+            - generic [ref=f4e812]: 2022 — 2023
+            - generic [ref=f4e816]: Cambodia
+          - heading "Junior Web Developer & UI Designer" [level=3] [ref=f4e821]
+          - heading "Creative Tech Lab" [level=4] [ref=f4e822]
+          - paragraph [ref=f4e823]: Mastered semantic HTML5, modern CSS layouts (Flexbox/Grid), and JavaScript fundamentals. Built 15+ client landing pages and initiated 3D graphics research with Three.js.
+          - generic [ref=f4e824]:
+            - generic [ref=f4e825]: HTML5
+            - generic [ref=f4e826]: CSS3
+            - generic [ref=f4e827]: JavaScript
+            - generic [ref=f4e828]: Figma to Code
+            - generic [ref=f4e829]: Git
+        - generic [ref=f4e834] [cursor=pointer]:
+          - generic [ref=f4e835]:
+            - generic [ref=f4e836]: 2021 — 2022
+            - generic [ref=f4e840]: Cambodia
+          - heading "Computer Science & Software Foundations" [level=3] [ref=f4e845]
+          - heading "Academic & Self-Directed Engineering" [level=4] [ref=f4e846]
+          - paragraph [ref=f4e847]: Intensive deep-dive into algorithms, data structures, browser rendering mechanics, DOM lifecycle, and modern web standards.
+          - generic [ref=f4e848]:
+            - generic [ref=f4e849]: Algorithms
+            - generic [ref=f4e850]: Web Architecture
+            - generic [ref=f4e851]: Git
+            - generic [ref=f4e852]: Clean Code
+    - generic [ref=f4e853]:
+      - generic [ref=f4e854]:
+        - generic [ref=f4e855]: START A CONVERSATION
+        - heading "HAVE A PROJECT IN MIND? LET’S BUILD TOGETHER" [level=2] [ref=f4e860]:
+          - text: HAVE A PROJECT IN MIND?
+          - generic [ref=f4e861]: LET’S BUILD TOGETHER
+        - paragraph [ref=f4e862]: Whether you need a high-impact 3D website, a custom frontend web app, or frontend consulting—reach out below.
+      - generic [ref=f4e863]:
+        - generic [ref=f4e864] [cursor=pointer]:
+          - generic [ref=f4e865]:
+            - heading "Contact Channels" [level=3] [ref=f4e866]
+            - paragraph [ref=f4e867]: Currently accepting freelance opportunities, agency contracts, and full-time remote engineering roles.
+          - generic [ref=f4e868]:
+            - generic [ref=f4e869]:
+              - generic [ref=f4e874]:
+                - generic [ref=f4e875]: Email Address
+                - generic [ref=f4e876]: chan.stilllearning@gmail.com
+              - button "Copy Email" [ref=f4e877]
+            - link "Telegram Direct @chan_frontend" [ref=f4e881]:
+              - /url: https://t.me/chan_frontend
+              - generic [ref=f4e886]:
+                - generic [ref=f4e887]: Telegram Direct
+                - generic [ref=f4e888]: "@chan_frontend"
+            - generic [ref=f4e896]:
+              - generic [ref=f4e897]: Current Location
+              - generic [ref=f4e898]: Phnom Penh, Cambodia
+              - generic [ref=f4e899]: UTC+7 Timezone
+          - generic [ref=f4e900]:
+            - generic [ref=f4e901]: Find Me Online
+            - generic [ref=f4e902]:
+              - link "GitHub" [ref=f4e903]:
+                - /url: https://github.com/chan-stilllearning
+              - link "LinkedIn" [ref=f4e908]:
+                - /url: https://linkedin.com/in/chan-webdev
+              - link "Telegram" [ref=f4e914]:
+                - /url: https://t.me/chan_frontend
+              - link "Email" [ref=f4e919]:
+                - /url: mailto:chan.stilllearning@gmail.com
+        - generic [ref=f4e925]:
+          - generic [ref=f4e926]:
+            - generic [ref=f4e927]:
+              - generic [ref=f4e928]: Your Name *
+              - textbox "Your Name *" [ref=f4e929] [cursor=pointer]:
+                - /placeholder: e.g. Alex Morgan
+            - generic [ref=f4e930]:
+              - generic [ref=f4e931]: Email Address *
+              - textbox "Email Address *" [ref=f4e932] [cursor=pointer]:
+                - /placeholder: alex@company.com
+          - generic [ref=f4e933]:
+            - generic [ref=f4e934]:
+              - generic [ref=f4e935]: Project Focus
+              - combobox "Project Focus" [ref=f4e936] [cursor=pointer]:
+                - option "3D Web Experience / Three.js" [selected]
+                - option "Full Frontend Application"
+                - option "Design System & UI/UX"
+                - option "Performance & Core Web Vitals"
+                - option "Full-time Job Opportunity"
+            - generic [ref=f4e937]:
+              - generic [ref=f4e938]: Estimated Budget
+              - combobox "Estimated Budget" [ref=f4e939] [cursor=pointer]:
+                - option "< $1,000 USD" [selected]
+                - option "$1,000 — $3,000 USD"
+                - option "$3,000 — $7,000 USD"
+                - option "$7,000+ USD"
+          - generic [ref=f4e940]:
+            - generic [ref=f4e941]: Project Details *
+            - textbox "Project Details *" [ref=f4e942] [cursor=pointer]:
+              - /placeholder: Tell me about your vision, timeline, and goals...
+          - button "Send Message" [ref=f4e943] [cursor=pointer]
+  - contentinfo [ref=f4e948]:
+    - generic [ref=f4e949]:
+      - generic [ref=f4e950]:
+        - generic [ref=f4e951]:
+          - generic [ref=f4e952]: CHAN
+          - paragraph [ref=f4e957]: Creative Frontend Developer based in Phnom Penh, Cambodia. Specialized in high-performance WebGL, React architectures, and immersive interactive design.
+        - generic [ref=f4e958] [cursor=pointer]:
+          - generic [ref=f4e959]: PHNOM PENH (LOCAL TIME)
+          - generic [ref=f4e964]: UTC+7
+          - generic [ref=f4e965]: Indochina Time (ICT, UTC+7)
+      - generic [ref=f4e967]:
+        - paragraph [ref=f4e968]: © 2026 Chan Sovannarith. Crafted with React, Three.js & TypeScript.
+        - generic [ref=f4e969]:
+          - link "GitHub" [ref=f4e970] [cursor=pointer]:
+            - /url: https://github.com/chan-stilllearning
+          - link "LinkedIn" [ref=f4e974] [cursor=pointer]:
+            - /url: https://linkedin.com/in/chan-webdev
+          - link "Telegram" [ref=f4e979] [cursor=pointer]:
+            - /url: https://t.me/chan_frontend
+          - link "Email" [ref=f4e983] [cursor=pointer]:
+            - /url: mailto:chan.stilllearning@gmail.com
+        - button "Back to top" [ref=f4e987] [cursor=pointer]:
+          - generic [ref=f4e988]: Back to Top
