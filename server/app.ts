@@ -10,7 +10,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 // Admin Auth Helper (simple Bearer token or query param for CMS write access)
-const ADMIN_SECRET = process.env.ADMIN_SECRET || 'chan-sovannarith-cms-2026';
+const ADMIN_SECRET = process.env.ADMIN_SECRET || 'keo-kimchan-cms-2026';
 
 const requireAdmin = (req: Request, res: Response, next: NextFunction): void => {
   const authHeader = req.headers.authorization;
@@ -33,7 +33,7 @@ const requireAdmin = (req: Request, res: Response, next: NextFunction): void => 
 app.get('/api/health', (_req: Request, res: Response) => {
   res.json({
     status: 'online',
-    service: 'Chan Sovannarith Portfolio API',
+    service: 'KEO KIMCHAN Portfolio API',
     version: '1.0.0',
     timestamp: new Date().toISOString(),
     uptime: process.uptime()

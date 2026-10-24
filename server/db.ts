@@ -79,7 +79,7 @@ export interface DatabaseSchema {
 
 const DEFAULT_PROFILE: PersonalInfo = {
   name: 'CHAN',
-  fullName: 'Chan Sovannarith',
+  fullName: 'KEO KIMCHAN',
   role: 'Creative Frontend Web Developer',
   focus: '3D Web Experiences, Interactive UI & Performance',
   location: 'Phnom Penh, Cambodia',

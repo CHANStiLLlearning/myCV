@@ -93,7 +93,7 @@ export const Hero3DFace: React.FC<Hero3DFaceProps> = ({ currentTheme, onThemeCha
           transform: `perspective(1200px) rotateX(${rotate.x.toFixed(2)}deg) rotateY(${rotate.y.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`,
           transition: isHovered ? 'transform 0.08s ease-out' : 'transform 0.5s ease-out'
         }}
-        aria-label="Interactive 3D Portrait of Chan Sovannarith"
+        aria-label="Interactive 3D Portrait of KEO KIMCHAN"
       >
         {/* Layer 0: Ambient Cyber Glow Behind the Card */}
         <div className={`face-ambient-glow ${currentTheme}`} />

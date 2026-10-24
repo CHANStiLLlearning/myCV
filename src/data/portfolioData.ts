@@ -2,7 +2,7 @@ import type { Project, SkillCategory, TimelineMilestone, SocialLink } from '../t
 
 export const PERSONAL_INFO = {
   name: 'CHAN',
-  fullName: 'Chan Sovannarith',
+  fullName: 'KEO KIMCHAN',
   role: 'Creative Frontend Web Developer',
   focus: '3D Web Experiences, Interactive UI & Performance',
   location: 'Phnom Penh, Cambodia',
@@ -206,7 +206,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     platform: 'LinkedIn',
     url: 'https://linkedin.com/in/chan-webdev',
     icon: 'Linkedin',
-    handle: 'Chan Sovannarith'
+    handle: 'KEO KIMCHAN'
   },
   {
     platform: 'Telegram',

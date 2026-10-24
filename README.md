@@ -129,4 +129,4 @@ npx netlify deploy --prod --dir=dist
 ---
 
 ## 📄 License
-MIT © Chan Sovannarith
+MIT © KEO KIMCHAN

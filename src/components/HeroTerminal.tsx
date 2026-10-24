@@ -13,7 +13,7 @@ export const HeroTerminal: React.FC<HeroTerminalProps> = ({ currentTheme, onThem
   const [copied, setCopied] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<'profile' | 'stack' | 'status'>('profile');
 
-  const profileCode = `// Chan Sovannarith — Creative Frontend Web Developer
+  const profileCode = `// KEO KIMCHAN — Creative Frontend Web Developer
 export const developer: FrontendArchitect = {
   name: "${PERSONAL_INFO.fullName}",
   alias: "${PERSONAL_INFO.name}",
@@ -133,7 +133,7 @@ export const developer: FrontendArchitect = {
           <code>
             {activeTab === 'profile' && (
               <>
-                <span className="c-comment">// Chan Sovannarith — Creative Frontend Web Developer</span>{'\n'}
+                <span className="c-comment">// KEO KIMCHAN — Creative Frontend Web Developer</span>{'\n'}
                 <span className="c-keyword">export const</span> <span className="c-var">developer</span>: <span className="c-type">FrontendArchitect</span> = {'{'}{'\n'}
                 {'  '}<span className="c-prop">name</span>: <span className="c-string">"{PERSONAL_INFO.fullName}"</span>,{'\n'}
                 {'  '}<span className="c-prop">alias</span>: <span className="c-string">"{PERSONAL_INFO.name}"</span>,{'\n'}

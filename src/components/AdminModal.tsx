@@ -270,7 +270,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({ isOpen, onClose }) => {
                   <input
                     type="password"
                     className="form-input"
-                    placeholder="chan-sovannarith-cms-2026"
+                    placeholder="keo-kimchan-cms-2026"
                     value={keyInput}
                     onChange={(e) => setKeyInput(e.target.value)}
                     style={{ paddingLeft: '38px', width: '100%' }}
@@ -312,7 +312,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({ isOpen, onClose }) => {
                 className="btn btn-secondary w-full"
                 style={{ marginTop: '10px', fontSize: '0.78rem', padding: '8px' }}
                 onClick={() => {
-                  setKeyInput('chan-sovannarith-cms-2026');
+                  setKeyInput('keo-kimchan-cms-2026');
                   sounds.playClick();
                 }}
               >
